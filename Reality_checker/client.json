@@ -33,7 +33,7 @@
         "vnext": [
           {
             "address": "193.176.158.153",
-            "port": 443,
+            "port": 8443,
             "users": [
               {
                 "id": "db7ba30e-5163-407e-bbe6-14c5555a7e57",
@@ -54,8 +54,8 @@
           "serverName": "www.update.microsoft",
           "fingerprint": "firefox",
           "show": false,
-          "publicKey": "BsKlkKT1sMtetP3YCMZOTo4gbdxMTJeK90tnThpBe3o",
-          "shortId": "f859db27ab5a09af"
+          "publicKey": "GifH15CmWLUfAymiKoj4_05YdwsYoZV0s6iZ_21JYUk",
+          "shortId": "d5cfde36"
         }
       },
       "mux": {
