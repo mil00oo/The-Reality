@@ -15,7 +15,7 @@ chown root:root /root/sing-box &&
 chmod +x /root/sing-box
 
 # Download Sing-Box configuration file
-curl -Lo /root/sing-box_config.json https://raw.githubusercontent.com/mil00oo/The-Reality/Mio/reality-singbox.json
+curl -Lo /root/sing-box_config.json https://raw.githubusercontent.com/mil00oo/The-Reality/main/Reality_checker/reality-singbox.json
 
 # Download Sing-Box service file from Segaro repo
 curl -Lo /etc/systemd/system/sing-box.service https://raw.githubusercontent.com/iSegaro/Sing-Box/main/sing-box.service &&
