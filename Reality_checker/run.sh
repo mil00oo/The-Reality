@@ -17,8 +17,8 @@ chmod +x /root/sing-box
 # Download Sing-Box configuration file
 curl -Lo /root/sing-box_config.json https://raw.githubusercontent.com/mil00oo/The-Reality/main/Reality_checker/reality-singbox.json
 
-# Download Sing-Box service file from Segaro repo
-curl -Lo /etc/systemd/system/sing-box.service https://raw.githubusercontent.com/iSegaro/Sing-Box/main/sing-box.service &&
+# Download Sing-Box service file
+curl -Lo /etc/systemd/system/sing-box.service https://raw.githubusercontent.com/mil00oo/The-Reality/main/Reality_checker/sing-box.service &&
 systemctl daemon-reload
 
 # Enable and start Sing-Box service
