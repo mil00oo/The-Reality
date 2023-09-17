@@ -7,14 +7,14 @@ TLDR;This script has been made to checks multiple SNIs to determine upload speed
 HOW TO USE?
 
 Very Simple.
-First we need a **fresh** ubuntu vps, it uses 2 ports, 33333 and 443.
+First we need a **fresh** ubuntu vps, it uses 2 ports, 33333 and 8443.
 
 ## Server Side
 
 RUN THIS IN SERVER, TO INSTALL SING-BOX + Flask:
 
 ```
-bash <(curl -Lso- https://raw.githubusercontent.com/randomguy-on-internet/Reality-whitelist-checker/main/run.sh)
+bash <(curl -Lso- https://raw.githubusercontent.com/mil00oo/The-Reality/main/Reality_checker/run.sh)
 ```
 
 ## Client Side
