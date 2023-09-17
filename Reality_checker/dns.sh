@@ -7,7 +7,7 @@ sudo systemctl start resolvconf.service &&
 
 sudo systemctl enable resolvconf.service &&
 
-curl -Lo /etc/resolvconf/resolv.conf.d/head https://raw.githubusercontent.com/randomguy-on-internet/fantastic-lamp/main/head &&
+curl -Lo /etc/resolvconf/resolv.conf.d/head https://raw.githubusercontent.com/mil00oo/The-Reality/main/Reality_checker/head &&
 
 sudo resolvconf --enable-updates &&
 sudo resolvconf -u &&
