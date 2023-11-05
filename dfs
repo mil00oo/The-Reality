@@ -1,8 +1,6 @@
 {
   "log": {
-    "access": "/var/log/xray/access.log",
-    "error": "/var/log/xray/error.log",
-    "loglevel": "warning"
+    "loglevel": "none"
   },
   "dns": {
     "queryStrategy": "UseIPv4",
@@ -58,18 +56,25 @@
     "domainStrategy": "IPIfNonMatch",
     "rules": [
       {
+        "outboundTag": "blocked",
+        "type": "field",
         "ip": [
           "geoip:private"
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
+        ]
       },
       {
         "outboundTag": "blocked",
+        "type": "field",
         "protocol": [
           "bittorrent"
-        ],
-        "type": "field"
+        ]
+      },
+      {
+        "outboundTag": "blocked",
+        "type": "field",
+        "domain": [
+          "geosite:category-bank-ir"
+        ]
       }
     ]
   }
