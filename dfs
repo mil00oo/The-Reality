@@ -1,9 +1,6 @@
 {
   "dns": {
-    "servers": [
-      "94.140.14.14"
-    ],
-    "queryStrategy": "UseIPv4"
+    "servers": "https://dns.adguard-dns.com/dns-query"
   },
   "log": {
     "access": "/var/log/xray/access.log",
