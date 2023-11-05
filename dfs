@@ -1,0 +1,93 @@
+{
+  "dns": {
+    "servers": [
+      "94.140.14.14"
+    ],
+    "queryStrategy": "UseIPv4"
+  },
+  "log": {
+    "access": "/var/log/xray/access.log",
+    "error": "/var/log/xray/error.log",
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 80,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "email": "uldjvq7n",
+            "id": "9ccac312-3242-4c9d-9d25-b1b8f1c28316"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "acceptProxyProtocol": false,
+          "headers": {},
+          "path": "/speedtest"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "DIRECT",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      }
+    },
+    {
+      "tag": "BLOCK",
+      "protocol": "blackhole"
+    },
+    {
+      "tag": "DNS-Internal",
+      "protocol": "dns",
+      "settings": {
+        "address": "127.0.0.53",
+        "port": 53
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "outboundTag": "BLOCK",
+        "protocol": "bittorrent",
+        "type": "field"
+      },
+      {
+        "outboundTag": "BLOCK",
+        "domain": "geosite:category-bank-ir",
+        "type": "field"
+      },
+      {
+        "outboundTag": "BLOCK",
+        "ip": "geoip:private",
+        "type": "field"
+      },
+      {
+        "network": "tcp,udp",
+        "outboundTag": "DNS-Internal",
+        "port": 53,
+        "type": "field"
+      }
+    ]
+  }
+}
