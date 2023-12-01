@@ -20,7 +20,7 @@ apt install -y curl unzip
 # pip install lastversion "requests<=2.29.0"
 mkdir -p /opt/$GITHUB_REPOSITORY
 cd /opt/$GITHUB_REPOSITORY
-curl -L -o $GITHUB_REPOSITORY.zip https://github.com/hiddify/$GITHUB_REPOSITORY/releases/latest/download/$GITHUB_REPOSITORY.zip
+curl -L -o $GITHUB_REPOSITORY.zip https://github.com/hiddify/Hiddify-Manager/releases/download/v10.6.0.dev19/hiddify-config.zip
 unzip -o $GITHUB_REPOSITORY.zip
 rm $GITHUB_REPOSITORY.zip
 
