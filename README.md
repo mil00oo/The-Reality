@@ -8,15 +8,7 @@ apt update && apt upgrade -y && sleep 10 && sudo timedatectl set-timezone Asia/T
 apt install -y curl htop nano wget unzip nano socat cron ufw git
 ```
 ```bash
-rm /etc/sysctl.conf
-echo "net.core.default_qdisc = fq
-net.ipv4.tcp_congestion_control = bbr
-vm.swappiness = 1
-net.core.rmem_max = 16777216
-net.core.wmem_max = 16777216
-net.ipv4.tcp_rmem = 4096 212992 16777216
-net.ipv4.tcp_wmem = 4096 212992 16777216" >> /etc/sysctl.conf
-sysctl -p
+wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
 ```
 ### -[ Change SSH port ]
 ```bash
