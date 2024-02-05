@@ -55,7 +55,7 @@
             "port": 443,
             "users": [
               {
-                "id": "05e30606-ba3d-4941-a9cd-a5031c1b87b3",
+                "id": "123",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto",
@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": true,
-          "serverName": "BLaCkJaCKET.siTe",
+          "serverName": "BlaCKJACket.SiTe",
           "alpn": [
             "h2",
             "http/1.1"
@@ -82,7 +82,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "BLaCkJaCKET.siTe"
+            "Host": "BlaCKJACket.SiTe"
           }
         },
         "sockopt": {
@@ -142,21 +142,11 @@
         "enabled": true
       },
       {
-        "id": "5465425548310166497",
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "domain:ir"
-        ],
-        "enabled": true
-      },
-      {
         "id": "5425034033205580637",
         "type": "field",
         "outboundTag": "direct",
         "ip": [
-          "geoip:private",
-          "geoip:ir"
+          "geoip:private"
         ],
         "enabled": true
       },
