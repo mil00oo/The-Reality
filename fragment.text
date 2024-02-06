@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": true,
-          "serverName": "BlaCKJACket.SiTe",
+          "serverName": "BlaCkJAcKET.siTe",
           "alpn": [
             "h2",
             "http/1.1"
@@ -82,7 +82,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "BlaCKJACket.SiTe"
+            "Host": "BlaCkJAcKET.siTe"
           }
         },
         "sockopt": {
