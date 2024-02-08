@@ -170,5 +170,3 @@
     ]
   }
 }
-
-vless://07f18019-de7a-4017-b66a-182c41a42e5a@104.18.23.19:443?encryption=none&security=tls&sni=SARA.CIMI.EU.ORG&alpn=h2&fp=chrome&type=ws&host=SARA.CIMI.EU.ORG&path=%2Fspeedtest#sara%20warp
