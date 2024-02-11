@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "bLacKJAcKET.sITE",
+          "serverName": "McI.genI.wORkERs.Dev",
           "alpn": [
             "h2",
             "http/1.1"
@@ -82,7 +82,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "bLacKJAcKET.sITE"
+            "Host": "McI.genI.wORkERs.Dev"
           }
         },
         "sockopt": {
@@ -142,21 +142,11 @@
         "enabled": true
       },
       {
-        "id": "5465425548310166497",
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "domain:ir"
-        ],
-        "enabled": true
-      },
-      {
         "id": "5425034033205580637",
         "type": "field",
         "outboundTag": "direct",
         "ip": [
-          "geoip:private",
-          "geoip:ir"
+          "geoip:private"
         ],
         "enabled": true
       },
