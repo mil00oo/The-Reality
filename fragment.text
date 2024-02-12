@@ -51,11 +51,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "www.legendaryking.link",
+            "address": "104.31.16.75",
             "port": 443,
             "users": [
               {
-                "id": "05e30606-ba3d-4941-a9cd-a5031c1b87b3",
+                "id": "2a6edba3-6990-42ff-96f4-34eb887923b4",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto",
@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "McI.genI.wORkERs.Dev",
+          "serverName": "MCI.geNi.WoRkERs.dev",
           "alpn": [
             "h2",
             "http/1.1"
@@ -82,7 +82,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "McI.genI.wORkERs.Dev"
+            "Host": "MCI.geNi.WoRkERs.dev"
           }
         },
         "sockopt": {
@@ -94,7 +94,9 @@
       },
       "mux": {
         "enabled": true,
-        "concurrency": 8
+        "concurrency": 8,
+        "xudpConcurrency": 8,
+        "xudpProxyUDP443": "reject"
       }
     },
     {
@@ -104,7 +106,7 @@
         "domainStrategy": "AsIs",
         "fragment": {
           "packets": "tlshello",
-          "length": "100-200",
+          "length": "10-20",
           "interval": "10-20"
         }
       },
