@@ -55,7 +55,7 @@
             "port": 443,
             "users": [
               {
-                "id": "2a6edba3-6990-42ff-96f4-34eb887923b4",
+                "id": "05e30606-ba3d-4941-a9cd-a5031c1b87b3",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto",
@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "MCI.geNi.WoRkERs.dev",
+          "serverName": "mci.GEnI.WORKeRS.DEv",
           "alpn": [
             "h2",
             "http/1.1"
@@ -82,7 +82,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "MCI.geNi.WoRkERs.dev"
+            "Host": "mci.GEnI.WORKeRS.DEv"
           }
         },
         "sockopt": {
@@ -144,11 +144,21 @@
         "enabled": true
       },
       {
+        "id": "5465425548310166497",
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "domain:ir"
+        ],
+        "enabled": true
+      },
+      {
         "id": "5425034033205580637",
         "type": "field",
         "outboundTag": "direct",
         "ip": [
-          "geoip:private"
+          "geoip:private",
+          "geoip:ir"
         ],
         "enabled": true
       },
