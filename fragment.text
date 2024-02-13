@@ -133,7 +133,7 @@
     }
   ],
   "routing": {
-    "domainStrategy": "AsIs",
+    "domainStrategy": "IPIfNonMatch",
     "rules": [
       {
         "type": "field",
@@ -144,21 +144,21 @@
         "enabled": true
       },
       {
-        "id": "5465425548310166497",
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "domain:ir"
-        ],
-        "enabled": true
-      },
-      {
         "id": "5425034033205580637",
         "type": "field",
         "outboundTag": "direct",
         "ip": [
           "geoip:private",
           "geoip:ir"
+        ],
+        "enabled": true
+      },
+      {
+        "id": "5465425548310166497",
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "ext:iran.dat:all"
         ],
         "enabled": true
       },
