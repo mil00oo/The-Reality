@@ -1,6 +1,6 @@
 [
   {
-    "remarks": "serv1",
+    "remarks": "همراه‌اول",
     "log": {
       "access": "",
       "error": "",
@@ -106,8 +106,8 @@
           "domainStrategy": "AsIs",
           "fragment": {
             "packets": "tlshello",
-            "length": "10-100",
-            "interval": "50-200"
+            "length": "100-200",
+            "interval": "10-20"
           }
         },
         "streamSettings": {
