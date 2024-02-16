@@ -53,7 +53,7 @@
         "settings": {
           "vnext": [
             {
-              "address": "w3.org",
+              "address": "104.31.16.75",
               "port": 443,
               "users": [
                 {
@@ -96,7 +96,9 @@
         },
         "mux": {
           "enabled": true,
-          "concurrency": 8
+          "concurrency": 8,
+          "xudpConcurrency": 8,
+          "xudpProxyUDP443": "reject"
         }
       },
       {
@@ -207,7 +209,7 @@
         "settings": {
           "vnext": [
             {
-              "address": "w3.org",
+              "address": "104.31.16.75",
               "port": 443,
               "users": [
                 {
@@ -250,7 +252,9 @@
         },
         "mux": {
           "enabled": true,
-          "concurrency": 8
+          "concurrency": 8,
+          "xudpConcurrency": 8,
+          "xudpProxyUDP443": "reject"
         }
       },
       {
