@@ -1,170 +1,310 @@
-{
-  "remarks": "serv1",
-  "dns": {
-    "hosts": {
-      "domain:googleapis.cn": "googleapis.com"
+[
+  {
+    "remarks": "serv1",
+    "log": {
+      "access": "",
+      "error": "",
+      "loglevel": "warning"
     },
-    "servers": [
-      "https://dns.adguard-dns.com/dns-query"
-    ]
-  },
-  "fakedns": [
-    {
-      "ipPool": "198.18.0.0/15",
-      "poolSize": 10000
-    }
-  ],
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "userLevel": 8
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "socks"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "userLevel": 8
-      },
-      "tag": "http"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10853,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "1.1.1.1",
-        "network": "tcp,udp",
-        "port": 53
-      },
-      "tag": "dns-in"
-    }
-  ],
-  "log": {
-    "loglevel": "warning"
-  },
-  "outbounds": [
-    {
-      "mux": {
-        "enabled": true,
-        "concurrency": 8,
-        "xudpConcurrency": 8,
-        "xudpProxyUDP443": "reject"
-      },
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "104.31.16.75",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "05e30606-ba3d-4941-a9cd-a5031c1b87b3",
-                "level": 8,
-                "security": "auto"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "sockopt": {
-          "dialerProxy": "fragment"
-        },
-        "tlsSettings": {
-          "allowInsecure": false,
-          "alpn": [
-            "h2",
-            "http/1.1"
+    "inbounds": [
+      {
+        "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "socks",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
           ],
-          "fingerprint": "chrome",
-          "serverName": "mci.GEnI.WORKeRS.DEv",
-          "show": false
+          "routeOnly": false
         },
-        "wsSettings": {
-          "headers": {
-            "Host": "mci.GEnI.WORKeRS.DEv"
-          },
-          "path": "/speedtest?ed=2048"
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
-      },
-      "tag": "proxy"
-    },
-    {
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIP"
-      },
-      "tag": "direct"
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {
-        "response": {
-          "type": "http"
-        }
-      },
-      "tag": "block"
-    },
-    {
-      "protocol": "freedom",
-      "settings": {
-        "fragment": {
-          "length": "100-200",
-          "interval": "10-20",
-          "packets": "tlshello"
-        }
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "",
-        "sockopt": {
-          "TcpNoDelay": true,
-          "mark": 255
-        }
-      },
-      "tag": "fragment"
-    },
-    {
-      "protocol": "dns",
-      "tag": "dns-out"
-    }
-  ],
-  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "inboundTag": [
-          "dns-in"
-        ],
-        "outboundTag": "dns-out",
-        "type": "field"
       },
       {
-        "ip": [
-          "geoip:private"
-        ],
-        "outboundTag": "direct",
-        "type": "field"
+        "tag": "http",
+        "port": 10809,
+        "listen": "127.0.0.1",
+        "protocol": "http",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
+        }
       }
-    ]
+    ],
+    "outbounds": [
+      {
+        "tag": "proxy",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "w3.org",
+              "port": 443,
+              "users": [
+                {
+                  "id": "05e30606-ba3d-4941-a9cd-a5031c1b87b3",
+                  "alterId": 0,
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "mci.GEnI.WORKeRS.DEv",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome",
+            "show": false
+          },
+          "wsSettings": {
+            "path": "/speedtest?ed=2048",
+            "headers": {
+              "Host": "mci.GEnI.WORKeRS.DEv"
+            }
+          },
+          "sockopt": {
+            "dialerProxy": "fragment",
+            "tcpKeepAliveIdle": 100,
+            "mark": 255,
+            "tcpNoDelay": true
+          }
+        },
+        "mux": {
+          "enabled": true,
+          "concurrency": 8
+        }
+      },
+      {
+        "tag": "fragment",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "AsIs",
+          "fragment": {
+            "packets": "tlshello",
+            "length": "10-100",
+            "interval": "50-200"
+          }
+        },
+        "streamSettings": {
+          "sockopt": {
+            "tcpNoDelay": true,
+            "tcpKeepAliveIdle": 100
+          }
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom",
+        "settings": {}
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole",
+        "settings": {
+          "response": {
+            "type": "http"
+          }
+        }
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "type": "field",
+          "inboundTag": [
+            "api"
+          ],
+          "outboundTag": "api",
+          "enabled": true
+        },
+        {
+          "id": "5627785659655799759",
+          "type": "field",
+          "port": "0-65535",
+          "outboundTag": "proxy",
+          "enabled": true
+        }
+      ]
+    }
+  },
+  {
+    "remarks": "serv2",
+    "log": {
+      "access": "",
+      "error": "",
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "socks",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
+        }
+      },
+      {
+        "tag": "http",
+        "port": 10809,
+        "listen": "127.0.0.1",
+        "protocol": "http",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "tag": "proxy",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "w3.org",
+              "port": 443,
+              "users": [
+                {
+                  "id": "05e30606-ba3d-4941-a9cd-a5031c1b87b3",
+                  "alterId": 0,
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "mci.GEnI.WORKeRS.DEv",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome",
+            "show": false
+          },
+          "wsSettings": {
+            "path": "/speedtest?ed=2048",
+            "headers": {
+              "Host": "mci.GEnI.WORKeRS.DEv"
+            }
+          },
+          "sockopt": {
+            "dialerProxy": "fragment",
+            "tcpKeepAliveIdle": 100,
+            "mark": 255,
+            "tcpNoDelay": true
+          }
+        },
+        "mux": {
+          "enabled": true,
+          "concurrency": 8
+        }
+      },
+      {
+        "tag": "fragment",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "AsIs",
+          "fragment": {
+            "packets": "tlshello",
+            "length": "10-100",
+            "interval": "50-200"
+          }
+        },
+        "streamSettings": {
+          "sockopt": {
+            "tcpNoDelay": true,
+            "tcpKeepAliveIdle": 100
+          }
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom",
+        "settings": {}
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole",
+        "settings": {
+          "response": {
+            "type": "http"
+          }
+        }
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "type": "field",
+          "inboundTag": [
+            "api"
+          ],
+          "outboundTag": "api",
+          "enabled": true
+        },
+        {
+          "id": "5627785659655799759",
+          "type": "field",
+          "port": "0-65535",
+          "outboundTag": "proxy",
+          "enabled": true
+        }
+      ]
+    }
   }
-}
+]
