@@ -154,7 +154,7 @@
     }
   },
   {
-    "remarks": "serv2",
+    "remarks": "خانه",
     "log": {
       "access": "",
       "error": "",
@@ -260,8 +260,8 @@
           "domainStrategy": "AsIs",
           "fragment": {
             "packets": "tlshello",
-            "length": "10-100",
-            "interval": "50-200"
+            "length": "10-20",
+            "interval": "10-20"
           }
         },
         "streamSettings": {
