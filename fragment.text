@@ -148,8 +148,7 @@
         "type": "field",
         "outboundTag": "direct",
         "domain": [
-          "domain:ir",
-          "geosite:cn"
+          "domain:ir"
         ],
         "enabled": true
       },
@@ -159,7 +158,6 @@
         "outboundTag": "direct",
         "ip": [
           "geoip:private",
-          "geoip:cn",
           "geoip:ir"
         ],
         "enabled": true
