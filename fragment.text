@@ -55,7 +55,7 @@
             "port": 443,
             "users": [
               {
-                "id": "05e30606-ba3d-4941-a9cd-a5031c1b87b3",
+                "id": "warp",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto",
@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mCi.GeNi.WorKeRs.dev",
+          "serverName": "mCi.GEnI.WOrkeRS.DEV",
           "alpn": [
             "h2",
             "http/1.1"
@@ -82,7 +82,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "mCi.GeNi.WorKeRs.dev"
+            "Host": "mCi.GEnI.WOrkeRS.DEV"
           }
         },
         "sockopt": {
