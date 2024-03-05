@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mCi.GEnI.WOrkeRS.DEV",
+          "serverName": "Mci.geNI.WORkers.dEv",
           "alpn": [
             "h2",
             "http/1.1"
@@ -80,9 +80,9 @@
           "show": false
         },
         "wsSettings": {
-          "path": "/speedtest?ed=2048",
+          "path": "?ed=2048",
           "headers": {
-            "Host": "mCi.GEnI.WOrkeRS.DEV"
+            "Host": "Mci.geNI.WORkers.dEv"
           }
         },
         "sockopt": {
