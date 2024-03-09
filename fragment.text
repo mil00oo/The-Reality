@@ -1,4 +1,5 @@
 {
+  "remarks": "IRCF Fragment",
   "log": {
     "access": "",
     "error": "",
@@ -71,7 +72,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mCI.Geni.WorKers.deV",
+          "serverName": "mcI.gENI.wORkers.DeV",
           "alpn": [
             "h2",
             "http/1.1"
@@ -82,7 +83,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "mCI.Geni.WorKers.deV"
+            "Host": "mcI.gENI.wORkers.DeV"
           }
         },
         "sockopt": {
