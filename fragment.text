@@ -1,5 +1,5 @@
 {
-  "remarks": "NewYork Warp Fragment",
+  "remarks": "IRCF Fragment",
   "log": {
     "access": "",
     "error": "",
@@ -52,11 +52,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.31.16.75",
+            "address": "zula.ir",
             "port": 443,
             "users": [
               {
-                "id": "warp",
+                "id": "05e30606-ba3d-4941-a9cd-a5031c1b87b3",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto",
@@ -72,7 +72,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mci.genI.WoRkerS.dEV",
+          "serverName": "McI.GENi.wORKErS.dEv",
           "alpn": [
             "h2",
             "http/1.1"
@@ -83,7 +83,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "mci.genI.WoRkerS.dEV"
+            "Host": "McI.GENi.wORKErS.dEv"
           }
         },
         "sockopt": {
