@@ -1,5 +1,5 @@
 {
-  "remarks": "NewYork Fragment",
+  "remarks": "🇺🇸 NewYork Fragment",
   "log": {
     "access": "",
     "error": "",
@@ -72,7 +72,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "McI.GENi.wORKErS.dEv",
+          "serverName": "mcI.GenI.wORkErS.DEv",
           "alpn": [
             "h2",
             "http/1.1"
@@ -83,7 +83,7 @@
         "wsSettings": {
           "path": "/speedtest?ed=2048",
           "headers": {
-            "Host": "McI.GENi.wORKErS.dEv"
+            "Host": "mcI.GenI.wORkErS.DEv"
           }
         },
         "sockopt": {
