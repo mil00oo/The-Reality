@@ -81,7 +81,7 @@
           "show": false
         },
         "wsSettings": {
-          "path": "/speedtest?ed=2048",
+          "path": "/speedtest?ed=2560",
           "headers": {
             "Host": "mcI.GenI.wORkErS.DEv"
           }
