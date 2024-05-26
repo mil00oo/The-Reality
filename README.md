@@ -2,7 +2,7 @@
 
 ### -[ Update And Upgrade]
 ```bash
-apt update && apt upgrade -y && sleep 10 && sudo timedatectl set-timezone Asia/Tehran && reboot
+apt update && apt upgrade -y && sleep 10 && sudo timedatectl set-timezone UTC && reboot
 ```
 ```bash
 apt install -y curl htop nano wget unzip nano socat cron ufw git
