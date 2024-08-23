@@ -10,6 +10,9 @@ apt install -y curl htop nano wget unzip nano socat cron ufw git
 ```bash
 wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
 ```
+```
+sudo rm -f /etc/resolv.conf && echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' | sudo tee /etc/resolv.conf > /dev/null && sudo chattr +i /etc/resolv.conf && cat /etc/resolv.conf
+```
 ### -[ Change SSH port ]
 ```bash
 apt install net-tools && netstat -tulnp
