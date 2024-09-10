@@ -464,7 +464,7 @@
         "statsOutboundUplink": true
       }
     },
-    "remarks": "ws-rd8626sx",
+    "remarks": "Sweden WS 3 Fragmnet",
     "routing": {
       "domainStrategy": "AsIs",
       "rules": [
