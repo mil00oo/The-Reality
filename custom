@@ -54,10 +54,10 @@
           "vnext": [
             {
               "address": "188.114.97.6",
-              "port": 2096,
+              "port": 443,
               "users": [
                 {
-                  "id": "582b0c3d-bdd2-4f0a-97ea-18ccd6314494",
+                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
                   "alterId": 0,
                   "email": "t@t.tt",
                   "security": "auto",
@@ -210,10 +210,10 @@
           "vnext": [
             {
               "address": "www.speedtest.net",
-              "port": 2096,
+              "port": 443,
               "users": [
                 {
-                  "id": "582b0c3d-bdd2-4f0a-97ea-18ccd6314494",
+                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
                   "alterId": 0,
                   "email": "t@t.tt",
                   "security": "auto",
@@ -391,11 +391,11 @@
           "vnext": [
             {
               "address": "188.114.97.3",
-              "port": 2096,
+              "port": 443,
               "users": [
                 {
                   "encryption": "none",
-                  "id": "582b0c3d-bdd2-4f0a-97ea-18ccd6314494",
+                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
                   "level": 8
                 }
               ]
@@ -484,307 +484,5 @@
       ]
     },
     "stats": {}
-  },
-  {
-    "remarks": "Sweden Http Fragmnet",
-    "log": {
-      "access": "",
-      "error": "",
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "tag": "socks",
-        "port": 10808,
-        "listen": "127.0.0.1",
-        "protocol": "socks",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": [
-            "http",
-            "tls"
-          ],
-          "routeOnly": false
-        },
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "allowTransparent": false
-        }
-      },
-      {
-        "tag": "http",
-        "port": 10809,
-        "listen": "127.0.0.1",
-        "protocol": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": [
-            "http",
-            "tls"
-          ],
-          "routeOnly": false
-        },
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "allowTransparent": false
-        }
-      }
-    ],
-    "outbounds": [
-      {
-        "tag": "proxy",
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "188.114.97.6",
-              "port": 443,
-              "users": [
-                {
-                  "id": "64cd0e8c-c0bc-4f67-9a68-351b0b14cd7c",
-                  "alterId": 0,
-                  "email": "t@t.tt",
-                  "security": "auto",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "httpupgrade",
-          "security": "tls",
-          "tlsSettings": {
-            "allowInsecure": false,
-            "serverName": "CDn.CImI.EU.orG",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "fingerprint": "chrome",
-            "show": false
-          },
-          "httpupgradeSettings": {
-            "path": "/?ed=2560",
-            "headers": {
-              "Host": "CDn.CImI.EU.orG"
-            }
-          },
-          "sockopt": {
-            "dialerProxy": "fragment",
-            "tcpKeepAliveIdle": 100,
-            "mark": 255,
-            "tcpMptcp": true,
-            "tcpNoDelay": true
-          }
-        }
-      },
-      {
-        "tag": "fragment",
-        "protocol": "freedom",
-        "settings": {
-          "domainStrategy": "AsIs",
-          "fragment": {
-            "packets": "tlshello",
-            "length": "100",
-            "interval": "0"
-          }
-        },
-        "streamSettings": {
-          "sockopt": {
-            "tcpKeepAliveIdle": 100,
-            "tcpMptcp": true,
-            "tcpNoDelay": true
-          }
-        }
-      },
-      {
-        "tag": "direct",
-        "protocol": "freedom",
-        "settings": {}
-      },
-      {
-        "tag": "block",
-        "protocol": "blackhole",
-        "settings": {
-          "response": {
-            "type": "http"
-          }
-        }
-      }
-    ],
-    "routing": {
-      "domainStrategy": "AsIs",
-      "rules": [
-        {
-          "type": "field",
-          "inboundTag": [
-            "api"
-          ],
-          "outboundTag": "api",
-          "enabled": true
-        },
-        {
-          "id": "5627785659655799759",
-          "type": "field",
-          "port": "0-65535",
-          "outboundTag": "proxy",
-          "enabled": true
-        }
-      ]
-    }
-  },
-  {
-    "remarks": "WARP Fragment",
-    "log": {
-      "access": "",
-      "error": "",
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "tag": "socks",
-        "port": 10808,
-        "listen": "127.0.0.1",
-        "protocol": "socks",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": [
-            "http",
-            "tls"
-          ],
-          "routeOnly": false
-        },
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "allowTransparent": false
-        }
-      },
-      {
-        "tag": "http",
-        "port": 10809,
-        "listen": "127.0.0.1",
-        "protocol": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": [
-            "http",
-            "tls"
-          ],
-          "routeOnly": false
-        },
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "allowTransparent": false
-        }
-      }
-    ],
-    "outbounds": [
-      {
-        "tag": "proxy",
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "188.114.97.6",
-              "port": 443,
-              "users": [
-                {
-                  "id": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
-                  "alterId": 0,
-                  "email": "t@t.tt",
-                  "security": "auto",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "allowInsecure": false,
-            "serverName": "bPb-sepTEMbeR.pAgEs.Dev",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "fingerprint": "chrome",
-            "show": false
-          },
-          "wsSettings": {
-            "path": "/VzRTJmHUc6QRKZgv?ed=2560",
-            "headers": {
-              "Host": "bPb-sepTEMbeR.pAgEs.Dev"
-            }
-          },
-          "sockopt": {
-            "dialerProxy": "fragment",
-            "tcpKeepAliveIdle": 100,
-            "mark": 255,
-            "tcpNoDelay": true
-          }
-        }
-      },
-      {
-        "tag": "fragment",
-        "protocol": "freedom",
-        "settings": {
-          "domainStrategy": "AsIs",
-          "fragment": {
-            "packets": "tlshello",
-            "length": "100",
-            "interval": "0"
-          }
-        },
-        "streamSettings": {
-          "sockopt": {
-            "tcpNoDelay": true,
-            "tcpKeepAliveIdle": 100
-          }
-        }
-      },
-      {
-        "tag": "direct",
-        "protocol": "freedom",
-        "settings": {}
-      },
-      {
-        "tag": "block",
-        "protocol": "blackhole",
-        "settings": {
-          "response": {
-            "type": "http"
-          }
-        }
-      }
-    ],
-    "routing": {
-      "domainStrategy": "AsIs",
-      "rules": [
-        {
-          "type": "field",
-          "inboundTag": [
-            "api"
-          ],
-          "outboundTag": "api",
-          "enabled": true
-        },
-        {
-          "id": "5627785659655799759",
-          "type": "field",
-          "port": "0-65535",
-          "outboundTag": "proxy",
-          "enabled": true
-        }
-      ]
-    }
   }
 ]
