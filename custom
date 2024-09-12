@@ -1,105 +1,111 @@
 [
   {
-    "remarks": "Sweden WS 1 Fragmnet",
-    "log": {
-      "access": "",
-      "error": "",
-      "loglevel": "warning"
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        {
+          "address": "8.8.8.8",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
     },
     "inbounds": [
       {
-        "tag": "socks",
         "port": 10808,
-        "listen": "127.0.0.1",
         "protocol": "socks",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": [
-            "http",
-            "tls"
-          ],
-          "routeOnly": false
-        },
         "settings": {
           "auth": "noauth",
           "udp": true,
-          "allowTransparent": false
-        }
+          "userLevel": 8
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "fakedns"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
       },
       {
-        "tag": "http",
         "port": 10809,
-        "listen": "127.0.0.1",
         "protocol": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": [
-            "http",
-            "tls"
-          ],
-          "routeOnly": false
-        },
         "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "allowTransparent": false
-        }
+          "userLevel": 8
+        },
+        "tag": "http"
       }
     ],
+    "log": {
+      "loglevel": "warning"
+    },
     "outbounds": [
       {
-        "tag": "proxy",
         "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "188.114.97.6",
-              "port": 443,
-              "users": [
-                {
-                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
-                  "alterId": 0,
-                  "email": "t@t.tt",
-                  "security": "auto",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
+        "tag": "proxy",
         "streamSettings": {
           "network": "ws",
           "security": "tls",
+          "sockopt": {
+            "dialerProxy": "fragment",
+            "tcpKeepAliveIdle": 100,
+            "tcpMptcp": true,
+            "tcpNoDelay": true
+          },
           "tlsSettings": {
             "allowInsecure": false,
-            "serverName": "cdn.CImi.eU.oRG",
             "alpn": [
               "h2",
               "http/1.1"
             ],
-            "fingerprint": "chrome",
-            "show": false
+            "fingerprint": "firefox",
+            "serverName": "cDn.cImI.Eu.oRg"
           },
           "wsSettings": {
-            "path": "/?ed=2560",
-            "headers": {
-              "Host": "cdn.CImi.eU.oRG"
-            }
-          },
-          "sockopt": {
-            "dialerProxy": "fragment",
-            "tcpKeepAliveIdle": 100,
-            "mark": 255,
-            "tcpNoDelay": true
+            "headers": {},
+            "host": "cdn.cimi.eu.org",
+            "path": "/?ed=2560"
           }
         },
         "mux": {
           "enabled": true,
           "concurrency": 8,
-          "xudpConcurrency": 8,
+          "xudpConcurrency": 16,
           "xudpProxyUDP443": "reject"
+        },
+        "settings": {
+          "vnext": [
+            {
+              "address": "zula.ir",
+              "port": 443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
+                  "level": 8
+                }
+              ]
+            }
+          ]
         }
+      },
+      {
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "UseIP"
+        },
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {
+          "response": {
+            "type": "http"
+          }
+        },
+        "tag": "block"
       },
       {
         "tag": "fragment",
@@ -114,202 +120,50 @@
         },
         "streamSettings": {
           "sockopt": {
-            "tcpNoDelay": true,
-            "tcpKeepAliveIdle": 100
-          }
-        }
-      },
-      {
-        "tag": "direct",
-        "protocol": "freedom",
-        "settings": {}
-      },
-      {
-        "tag": "block",
-        "protocol": "blackhole",
-        "settings": {
-          "response": {
-            "type": "http"
-          }
-        }
-      }
-    ],
-    "routing": {
-      "domainStrategy": "AsIs",
-      "rules": [
-        {
-          "type": "field",
-          "inboundTag": [
-            "api"
-          ],
-          "outboundTag": "api",
-          "enabled": true
-        },
-        {
-          "id": "5627785659655799759",
-          "type": "field",
-          "port": "0-65535",
-          "outboundTag": "proxy",
-          "enabled": true
-        }
-      ]
-    }
-  },
-  {
-    "remarks": "Sweden WS 2 Fragmnet",
-    "log": {
-      "access": "",
-      "error": "",
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "tag": "socks",
-        "port": 10808,
-        "listen": "127.0.0.1",
-        "protocol": "socks",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": [
-            "http",
-            "tls"
-          ],
-          "routeOnly": false
-        },
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "allowTransparent": false
-        }
-      },
-      {
-        "tag": "http",
-        "port": 10809,
-        "listen": "127.0.0.1",
-        "protocol": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": [
-            "http",
-            "tls"
-          ],
-          "routeOnly": false
-        },
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "allowTransparent": false
-        }
-      }
-    ],
-    "outbounds": [
-      {
-        "tag": "proxy",
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "www.speedtest.net",
-              "port": 443,
-              "users": [
-                {
-                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
-                  "alterId": 0,
-                  "email": "t@t.tt",
-                  "security": "auto",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "allowInsecure": false,
-            "serverName": "cdn.CImi.eU.oRG",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "fingerprint": "chrome",
-            "show": false
-          },
-          "wsSettings": {
-            "path": "/?ed=2560",
-            "headers": {
-              "Host": "cdn.CImi.eU.oRG"
-            }
-          },
-          "sockopt": {
-            "dialerProxy": "fragment",
             "tcpKeepAliveIdle": 100,
-            "mark": 255,
+            "tcpMptcp": true,
             "tcpNoDelay": true
           }
-        },
-        "mux": {
-          "enabled": true,
-          "concurrency": 8,
-          "xudpConcurrency": 8,
-          "xudpProxyUDP443": "reject"
         }
       },
       {
-        "tag": "fragment",
+        "tag": "noise",
         "protocol": "freedom",
         "settings": {
           "domainStrategy": "AsIs",
-          "fragment": {
-            "packets": "tlshello",
-            "length": "100",
-            "interval": "0"
-          }
-        },
-        "streamSettings": {
-          "sockopt": {
-            "tcpNoDelay": true,
-            "tcpKeepAliveIdle": 100
-          }
-        }
-      },
-      {
-        "tag": "direct",
-        "protocol": "freedom",
-        "settings": {}
-      },
-      {
-        "tag": "block",
-        "protocol": "blackhole",
-        "settings": {
-          "response": {
-            "type": "http"
+          "noise": {
+            "packet": "rand:5-10",
+            "delay": "10-20"
           }
         }
       }
     ],
+    "policy": {
+      "levels": {
+        "8": {
+          "connIdle": 300,
+          "downlinkOnly": 1,
+          "handshake": 4,
+          "uplinkOnly": 1
+        }
+      },
+      "system": {
+        "statsOutboundDownlink": true,
+        "statsOutboundUplink": true
+      }
+    },
+    "remarks": "🇸🇪-sweden-1",
     "routing": {
       "domainStrategy": "AsIs",
       "rules": [
         {
-          "type": "field",
-          "inboundTag": [
-            "api"
-          ],
-          "outboundTag": "api",
-          "enabled": true
-        },
-        {
-          "id": "5627785659655799759",
-          "type": "field",
-          "port": "0-65535",
+          "network": "tcp,udp",
           "outboundTag": "proxy",
-          "enabled": true
+          "type": "field"
         }
       ]
-    }
+    },
+    "stats": {}
   },
   {
     "dns": {
@@ -372,12 +226,178 @@
               "h2",
               "http/1.1"
             ],
-            "fingerprint": "chrome",
-            "serverName": "CdN.CiMi.eU.OrG"
+            "fingerprint": "firefox",
+            "serverName": "cDn.cImI.Eu.oRg"
           },
           "wsSettings": {
             "headers": {},
-            "host": "CdN.CiMi.eU.OrG",
+            "host": "cdn.cimi.eu.org",
+            "path": "/?ed=2560"
+          }
+        },
+        "mux": {
+          "enabled": true,
+          "concurrency": 8,
+          "xudpConcurrency": 16,
+          "xudpProxyUDP443": "reject"
+        },
+        "settings": {
+          "vnext": [
+            {
+              "address": "www.speedtest.net",
+              "port": 443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
+                  "level": 8
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "UseIP"
+        },
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {
+          "response": {
+            "type": "http"
+          }
+        },
+        "tag": "block"
+      },
+      {
+        "tag": "fragment",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "AsIs",
+          "fragment": {
+            "packets": "tlshello",
+            "length": "100",
+            "interval": "0"
+          }
+        },
+        "streamSettings": {
+          "sockopt": {
+            "tcpKeepAliveIdle": 100,
+            "tcpMptcp": true,
+            "tcpNoDelay": true
+          }
+        }
+      },
+      {
+        "tag": "noise",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "AsIs",
+          "noise": {
+            "packet": "rand:5-10",
+            "delay": "10-20"
+          }
+        }
+      }
+    ],
+    "policy": {
+      "levels": {
+        "8": {
+          "connIdle": 300,
+          "downlinkOnly": 1,
+          "handshake": 4,
+          "uplinkOnly": 1
+        }
+      },
+      "system": {
+        "statsOutboundDownlink": true,
+        "statsOutboundUplink": true
+      }
+    },
+    "remarks": "🇸🇪-sweden-2",
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        }
+      ]
+    },
+    "stats": {}
+  },
+  {
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        {
+          "address": "8.8.8.8",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
+    },
+    "inbounds": [
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "userLevel": 8
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "fakedns"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "userLevel": 8
+        },
+        "tag": "http"
+      }
+    ],
+    "log": {
+      "loglevel": "warning"
+    },
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "tag": "proxy",
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "sockopt": {
+            "dialerProxy": "fragment",
+            "tcpKeepAliveIdle": 100,
+            "tcpMptcp": true,
+            "tcpNoDelay": true
+          },
+          "tlsSettings": {
+            "allowInsecure": false,
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "firefox",
+            "serverName": "cDn.cImI.Eu.oRg"
+          },
+          "wsSettings": {
+            "headers": {},
+            "host": "cdn.cimi.eu.org",
             "path": "/?ed=2560"
           }
         },
@@ -464,18 +484,342 @@
         "statsOutboundUplink": true
       }
     },
-    "remarks": "Sweden WS 3 Fragmnet",
+    "remarks": "🇸🇪-sweden-3",
     "routing": {
       "domainStrategy": "AsIs",
       "rules": [
         {
-          "enabled": true,
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct",
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
           "type": "field"
+        }
+      ]
+    },
+    "stats": {}
+  },
+  {
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        {
+          "address": "8.8.8.8",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
+    },
+    "inbounds": [
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "userLevel": 8
         },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "fakedns"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "userLevel": 8
+        },
+        "tag": "http"
+      }
+    ],
+    "log": {
+      "loglevel": "warning"
+    },
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "tag": "proxy",
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "sockopt": {
+            "dialerProxy": "fragment",
+            "tcpKeepAliveIdle": 100,
+            "tcpMptcp": true,
+            "tcpNoDelay": true
+          },
+          "tlsSettings": {
+            "allowInsecure": false,
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "firefox",
+            "serverName": "cDn.cImI.Eu.oRg"
+          },
+          "wsSettings": {
+            "headers": {},
+            "host": "cdn.cimi.eu.org",
+            "path": "/?ed=2560"
+          }
+        },
+        "mux": {
+          "enabled": true,
+          "concurrency": 8,
+          "xudpConcurrency": 16,
+          "xudpProxyUDP443": "reject"
+        },
+        "settings": {
+          "vnext": [
+            {
+              "address": "188.114.96.3",
+              "port": 443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
+                  "level": 8
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "UseIP"
+        },
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {
+          "response": {
+            "type": "http"
+          }
+        },
+        "tag": "block"
+      },
+      {
+        "tag": "fragment",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "AsIs",
+          "fragment": {
+            "packets": "tlshello",
+            "length": "100",
+            "interval": "0"
+          }
+        },
+        "streamSettings": {
+          "sockopt": {
+            "tcpKeepAliveIdle": 100,
+            "tcpMptcp": true,
+            "tcpNoDelay": true
+          }
+        }
+      },
+      {
+        "tag": "noise",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "AsIs",
+          "noise": {
+            "packet": "rand:5-10",
+            "delay": "10-20"
+          }
+        }
+      }
+    ],
+    "policy": {
+      "levels": {
+        "8": {
+          "connIdle": 300,
+          "downlinkOnly": 1,
+          "handshake": 4,
+          "uplinkOnly": 1
+        }
+      },
+      "system": {
+        "statsOutboundDownlink": true,
+        "statsOutboundUplink": true
+      }
+    },
+    "remarks": "🇸🇪-sweden-4",
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        }
+      ]
+    },
+    "stats": {}
+  },
+  {
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        {
+          "address": "8.8.8.8",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
+    },
+    "inbounds": [
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "userLevel": 8
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "fakedns"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "userLevel": 8
+        },
+        "tag": "http"
+      }
+    ],
+    "log": {
+      "loglevel": "warning"
+    },
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "tag": "proxy",
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "sockopt": {
+            "dialerProxy": "fragment",
+            "tcpKeepAliveIdle": 100,
+            "tcpMptcp": true,
+            "tcpNoDelay": true
+          },
+          "tlsSettings": {
+            "allowInsecure": false,
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "firefox",
+            "serverName": "cDn.cImI.Eu.oRg"
+          },
+          "wsSettings": {
+            "headers": {},
+            "host": "cdn.cimi.eu.org",
+            "path": "/?ed=2560"
+          }
+        },
+        "mux": {
+          "enabled": true,
+          "concurrency": 8,
+          "xudpConcurrency": 16,
+          "xudpProxyUDP443": "reject"
+        },
+        "settings": {
+          "vnext": [
+            {
+              "address": "190.93.247.56",
+              "port": 443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "id": "8bd84aed-b1cf-4094-8f0f-44726900f958",
+                  "level": 8
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "UseIP"
+        },
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {
+          "response": {
+            "type": "http"
+          }
+        },
+        "tag": "block"
+      },
+      {
+        "tag": "fragment",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "AsIs",
+          "fragment": {
+            "packets": "tlshello",
+            "length": "100",
+            "interval": "0"
+          }
+        },
+        "streamSettings": {
+          "sockopt": {
+            "tcpKeepAliveIdle": 100,
+            "tcpMptcp": true,
+            "tcpNoDelay": true
+          }
+        }
+      },
+      {
+        "tag": "noise",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "AsIs",
+          "noise": {
+            "packet": "rand:5-10",
+            "delay": "10-20"
+          }
+        }
+      }
+    ],
+    "policy": {
+      "levels": {
+        "8": {
+          "connIdle": 300,
+          "downlinkOnly": 1,
+          "handshake": 4,
+          "uplinkOnly": 1
+        }
+      },
+      "system": {
+        "statsOutboundDownlink": true,
+        "statsOutboundUplink": true
+      }
+    },
+    "remarks": "🇸🇪-sweden-5",
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
         {
           "network": "tcp,udp",
           "outboundTag": "proxy",
