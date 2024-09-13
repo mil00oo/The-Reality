@@ -1,5 +1,156 @@
 [
   {
+    "remarks": "🇸🇪-sweden-irancell",
+    "log": {
+      "access": "",
+      "error": "",
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "socks",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
+        }
+      },
+      {
+        "tag": "http",
+        "port": 10809,
+        "listen": "127.0.0.1",
+        "protocol": "http",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "tag": "proxy",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "190.93.247.56",
+              "port": 2096,
+              "users": [
+                {
+                  "id": "2bf85e03-f8d2-48a6-abbd-6e9c8b3249df",
+                  "alterId": 0,
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "splithttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "cdn.cimi.eu.org",
+            "alpn": [
+              "h3"
+            ],
+            "fingerprint": "firefox"
+          },
+          "splithttpSettings": {
+            "path": "/",
+            "host": "cdn.cimi.eu.org",
+            "maxUploadSize": 1000000,
+            "maxConcurrentUploads": 10
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom",
+        "settings": {}
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole",
+        "settings": {
+          "response": {
+            "type": "http"
+          }
+        }
+      }
+    ],
+    "dns": {
+      "hosts": {
+        "dns.google": "8.8.8.8",
+        "proxy.example.com": "127.0.0.1"
+      },
+      "servers": [
+        {
+          "address": "223.5.5.5",
+          "domains": [
+            "geosite:cn",
+            "geosite:geolocation-cn"
+          ],
+          "expectIPs": [
+            "geoip:cn"
+          ]
+        },
+        "1.1.1.1",
+        "8.8.8.8",
+        "https://dns.google/dns-query"
+      ]
+    },
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "type": "field",
+          "inboundTag": [
+            "api"
+          ],
+          "outboundTag": "api"
+        },
+        {
+          "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
+          "port": "0-65535",
+          "outboundTag": "proxy"
+        }
+      ]
+    }
+  },
+  {
     "dns": {
       "queryStrategy": "UseIP",
       "servers": [
