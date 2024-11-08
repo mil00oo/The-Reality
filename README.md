@@ -29,13 +29,13 @@ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.
 ```
 ### -[ Install HIDDIFY]
 ```bash
-bash <(curl i.hiddify.com/release)
+bash <(curl https://i.hiddify.com/release)
 ```
 ```bash
-bash <(curl i.hiddify.com/beta)
+bash <(curl https://i.hiddify.com/beta)
 ```
 ```bash
-bash <(curl i.hiddify.com/dev)
+bash <(curl https://i.hiddify.com/dev)
 ```
 ### -[ Crontab]
 ```bash
