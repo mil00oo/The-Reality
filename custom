@@ -1,9 +1,14 @@
 {
   "remarks": "🇩🇪 Germany 1",
   "log": {
-    "loglevel": "warning"
+    "loglevel": "none"
   },
   "dns": {
+    "hosts": {
+      "geosite:category-ads-all": [
+        "127.0.0.1"
+      ]
+    },
     "servers": [
       "https://8.8.8.8/dns-query",
       {
@@ -17,7 +22,7 @@
         "skipFallback": true
       }
     ],
-    "queryStrategy": "UseIP",
+    "queryStrategy": "UseIPv4",
     "tag": "dns"
   },
   "inbounds": [
@@ -58,7 +63,6 @@
       "tag": "http-in"
     },
     {
-      "listen": "127.0.0.1",
       "port": 10853,
       "protocol": "dokodemo-door",
       "settings": {
@@ -91,13 +95,11 @@
         "network": "ws",
         "security": "tls",
         "sockopt": {
-          "tcpKeepAliveIdle": 30,
-          "tcpNoDelay": true,
-          "domainStrategy": "UseIPv4v6"
+          "dialerProxy": "fragment"
         },
         "wsSettings": {
+          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
           "headers": {
-            "Host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
           },
           "path": "/?ed=2560"
@@ -115,12 +117,31 @@
       "tag": "proxy"
     },
     {
+      "tag": "fragment",
+      "protocol": "freedom",
+      "settings": {
+        "fragment": {
+          "packets": "tlshello",
+          "length": "100",
+          "interval": "0"
+        },
+        "domainStrategy": "UseIPv4"
+      },
+      "streamSettings": {
+        "sockopt": {
+          "tcpKeepAliveIdle": 30
+        }
+      }
+    },
+    {
       "protocol": "dns",
       "tag": "dns-out"
     },
     {
       "protocol": "freedom",
-      "settings": {},
+      "settings": {
+        "domainStrategy": "UseIP"
+      },
       "tag": "direct"
     },
     {
@@ -148,7 +169,7 @@
     }
   },
   "routing": {
-    "domainStrategy": "IPIfNonMatch",
+    "domainStrategy": "IPOnDemand",
     "rules": [
       {
         "inboundTag": [
@@ -163,7 +184,16 @@
           "http-in"
         ],
         "port": "53",
+        "network": "udp",
         "outboundTag": "dns-out",
+        "type": "field"
+      },
+      {
+        "ip": [
+          "8.8.8.8"
+        ],
+        "port": "443",
+        "outboundTag": "proxy",
         "type": "field"
       },
       {
@@ -173,6 +203,13 @@
         "port": "53",
         "network": "udp",
         "outboundTag": "direct",
+        "type": "field"
+      },
+      {
+        "domain": [
+          "geosite:category-ads-all"
+        ],
+        "outboundTag": "block",
         "type": "field"
       },
       {
