@@ -1,80 +1,93 @@
 # The Reality
 
-### -[ Update And Upgrade]
+### -[ Update And Upgrade ]
 ```bash
-apt update && apt upgrade -y && sleep 10 && sudo timedatectl set-timezone UTC && reboot
+sudo apt update && sudo apt full-upgrade -y
+sudo timedatectl set-timezone UTC
+[ -f /var/run/reboot-required ] && echo "Reboot needed!" && sudo reboot
 ```
+
+### -[ Install Essentials ]
 ```bash
-apt install -y curl htop nano wget unzip nano socat cron ufw git
+sudo apt install -y curl htop nano wget unzip socat cron ufw git net-tools
 ```
+
+### -[ Enable BBR (Modern Kernels) ]
 ```bash
-wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
+echo "net.core.default_qdisc=fq" | sudo tee -a /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
 ```
-```
-sudo rm -f /etc/resolv.conf && echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' | sudo tee /etc/resolv.conf > /dev/null && sudo chattr +i /etc/resolv.conf && cat /etc/resolv.conf
-```
-### -[ Change SSH port ]
+
+### -[ Fix DNS (Preserve Systemd) ]
 ```bash
-apt install net-tools && netstat -tulnp
+sudo sed -i 's/#DNS=/DNS=8.8.8.8 1.1.1.1/' /etc/systemd/resolved.conf
+sudo systemctl restart systemd-resolved
 ```
+
+### -[ Change SSH Port ]
 ```bash
-nano /etc/ssh/sshd_config
+NEW_PORT=2222
+sudo sed -i "s/#Port 22/Port $NEW_PORT/" /etc/ssh/sshd_config
+sudo ufw allow $NEW_PORT/tcp
+sudo systemctl restart sshd
 ```
-```bash
-systemctl restart sshd
-```
-### -[ Install 3X-UI]
+
+### -[ Install 3X-UI ]
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
-### -[ Install HIDDIFY]
-```bash
-bash <(curl https://i.hiddify.com/release)
-```
-```bash
-bash <(curl https://i.hiddify.com/beta)
-```
-```bash
-bash <(curl https://i.hiddify.com/dev)
-```
-### -[ Crontab]
-```bash
-crontab -e
-```
-```bash
-0 7   *   *   *    /sbin/shutdown -r +5
-```
-### -[ Change Repository]
-```bash
-rm /etc/apt/sources.list
-echo "deb http://mirror-cdn.xtom.com/ubuntu focal main universe
-deb http://mirror-cdn.xtom.com/ubuntu focal-updates main universe
-deb http://mirror-cdn.xtom.com/ubuntu focal-security main universe" >> /etc/apt/sources.list
-```
-### -[ Install Xray Core]
-```bash
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u root
-```
-### -[download dlc.dat file]
 
+### -[ Install HIDDIFY (Choose One) ]
 ```bash
-cd /usr/local/share/xray/ && wget https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/iran.dat && wget https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat && cd
+# Stable
+bash <(curl -Ls https://raw.githubusercontent.com/hiddify/hiddify-config/main/install.sh)
+
+# Beta
+bash <(curl -Ls https://raw.githubusercontent.com/hiddify/hiddify-config/main/install.sh) --beta
+
+# Dev
+bash <(curl -Ls https://raw.githubusercontent.com/hiddify/hiddify-config/main/install.sh) --dev
 ```
 
-### -[ Public and Private Keys ]
+### -[ Auto Reboot ]
 ```bash
-xray x25519
+(crontab -l 2>/dev/null; echo "0 7 * * * /sbin/shutdown -r +5") | crontab -
 ```
+
+### -[ Fix Ubuntu 24.04 Repos ]
 ```bash
-xray uuid
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+echo "deb http://archive.ubuntu.com/ubuntu noble main universe
+deb http://archive.ubuntu.com/ubuntu noble-updates main universe
+deb http://security.ubuntu.com/ubuntu noble-security main universe" | sudo tee /etc/apt/sources.list
+sudo apt update
 ```
+
+### -[ Install Xray Core ]
 ```bash
-openssl rand -hex 8
+sudo bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
 ```
-### -[ Change config.json of Xray ]
+
+### -[ Get Geo Files ]
 ```bash
-nano /usr/local/etc/xray/config.json
+sudo wget -O /usr/local/share/xray/iran.dat https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/iran.dat
+sudo wget -O /usr/local/share/xray/dlc.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat
 ```
+
+### -[ Generate Keys ]
 ```bash
-systemctl restart xray.service && sleep 2 && systemctl status xray.service
+echo "=== X25519 ===" > keys.txt
+xray x25519 >> keys.txt
+echo -e "\n=== UUID ===" >> keys.txt
+xray uuid >> keys.txt
+echo -e "\n=== Random ===" >> keys.txt
+openssl rand -hex 8 >> keys.txt
+cat keys.txt
+```
+
+### -[ Restart Xray ]
+```bash
+sudo systemctl restart xray
+sudo systemctl status xray
 ```
