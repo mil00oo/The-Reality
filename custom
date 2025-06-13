@@ -8,7 +8,16 @@
     },
     "servers": [
       "1.1.1.1",
-      "8.8.8.8"
+      "9.9.9.10",
+      {
+        "address": "8.8.8.8",
+        "domains": [
+          "domain:ir"
+        ],
+        "expectIPs": [
+          "geoip:ir"
+        ]
+      }
     ]
   },
   "inbounds": [
@@ -33,6 +42,40 @@
     }
   ],
   "outbounds": [
+    {
+      "tag": "proxy-4",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.speedtest.net",
+            "port": 8080,
+            "users": [
+              {
+                "id": "a891b235-b73d-4eba-a2c1-f16def02ca98",
+                "email": "t@t.tt",
+                "security": "auto",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/?ed=2560",
+          "host": "contact.Girono.iR.",
+          "headers": {
+            "Host": "contact.Girono.iR."
+          }
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1
+      }
+    },
     {
       "tag": "proxy-3",
       "protocol": "vless",
@@ -167,6 +210,12 @@
           "api"
         ],
         "outboundTag": "api"
+      },
+      {
+        "type": "field",
+        "port": "443",
+        "network": "udp",
+        "outboundTag": "block"
       },
       {
         "type": "field",
