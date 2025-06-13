@@ -8,7 +8,17 @@
     },
     "servers": [
       "1.1.1.1",
-      "8.8.8.8"
+      "9.9.9.10",
+      {
+        "address": "8.8.8.8",
+        "domains": [
+          "domain:ir",
+          "geosite:ir"
+        ],
+        "expectIPs": [
+          "geoip:ir"
+        ]
+      }
     ]
   },
   "inbounds": [
@@ -34,734 +44,16 @@
   ],
   "outbounds": [
     {
-      "tag": "proxy-22",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 8080,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "xhttpSettings": {
-          "path": "/vCBzMD47IlFXrLHp23CcuP",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-21",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 8080,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "httpupgradeSettings": {
-          "path": "/vCBzMD47IlFj8VlW0U9N8E",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-20",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 8080,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/vCBzMD47IlF2JG40Latg6",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "headers": {
-            "Host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-          }
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-19",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "alpn": [
-            "http/1.1"
-          ],
-          "fingerprint": "chrome"
-        },
-        "xhttpSettings": {
-          "path": "/vCBzMD47IlFXrLHp23CcuP",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-18",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "alpn": [
-            "http/1.1"
-          ],
-          "fingerprint": "chrome"
-        },
-        "httpupgradeSettings": {
-          "path": "/vCBzMD47IlFj8VlW0U9N8E",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-17",
-      "protocol": "trojan",
-      "settings": {
-        "servers": [
-          {
-            "address": "zula.ir",
-            "method": "chacha20",
-            "ota": false,
-            "password": "4a04823e-cc01-41bf-ba30-879679844bd1",
-            "port": 443,
-            "level": 1
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "alpn": [
-            "http/1.1"
-          ],
-          "fingerprint": "chrome"
-        },
-        "wsSettings": {
-          "path": "/tJavhhj2JG40Latg6",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "headers": {
-            "Host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-          }
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-16",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "alpn": [
-            "http/1.1"
-          ],
-          "fingerprint": "chrome"
-        },
-        "wsSettings": {
-          "path": "/vCBzMD47IlF2JG40Latg6",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "headers": {
-            "Host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-          }
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-15",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "alpn": [
-            "h2"
-          ],
-          "fingerprint": "chrome"
-        },
-        "xhttpSettings": {
-          "path": "/vCBzMD47IlFXrLHp23CcuP",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-14",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "alpn": [
-            "h2"
-          ],
-          "fingerprint": "chrome"
-        },
-        "httpupgradeSettings": {
-          "path": "/vCBzMD47IlFj8VlW0U9N8E",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-13",
-      "protocol": "trojan",
-      "settings": {
-        "servers": [
-          {
-            "address": "zula.ir",
-            "method": "chacha20",
-            "ota": false,
-            "password": "4a04823e-cc01-41bf-ba30-879679844bd1",
-            "port": 443,
-            "level": 1
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "alpn": [
-            "h2"
-          ],
-          "fingerprint": "chrome"
-        },
-        "wsSettings": {
-          "path": "/tJavhhj2JG40Latg6",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "headers": {
-            "Host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-          }
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-12",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "alpn": [
-            "h2"
-          ],
-          "fingerprint": "chrome"
-        },
-        "wsSettings": {
-          "path": "/vCBzMD47IlF2JG40Latg6",
-          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
-          "headers": {
-            "Host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
-          }
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-11",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 8080,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "xhttpSettings": {
-          "path": "/vCBzMD47IlFXrLHp23CcuP",
-          "host": "panel.girono.ir"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-10",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 8080,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "httpupgradeSettings": {
-          "path": "/vCBzMD47IlFj8VlW0U9N8E",
-          "host": "panel.girono.ir"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-9",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 8080,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/vCBzMD47IlF2JG40Latg6",
-          "host": "panel.girono.ir",
-          "headers": {
-            "Host": "panel.girono.ir"
-          }
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-8",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "panel.girono.ir",
-          "alpn": [
-            "http/1.1"
-          ],
-          "fingerprint": "chrome"
-        },
-        "xhttpSettings": {
-          "path": "/vCBzMD47IlFXrLHp23CcuP",
-          "host": "panel.girono.ir"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-7",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "panel.girono.ir",
-          "alpn": [
-            "http/1.1"
-          ],
-          "fingerprint": "chrome"
-        },
-        "httpupgradeSettings": {
-          "path": "/vCBzMD47IlFj8VlW0U9N8E",
-          "host": "panel.girono.ir"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-6",
-      "protocol": "trojan",
-      "settings": {
-        "servers": [
-          {
-            "address": "zula.ir",
-            "method": "chacha20",
-            "ota": false,
-            "password": "4a04823e-cc01-41bf-ba30-879679844bd1",
-            "port": 443,
-            "level": 1
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "panel.girono.ir",
-          "alpn": [
-            "http/1.1"
-          ],
-          "fingerprint": "chrome"
-        },
-        "wsSettings": {
-          "path": "/tJavhhj2JG40Latg6",
-          "host": "panel.girono.ir",
-          "headers": {
-            "Host": "panel.girono.ir"
-          }
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-5",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "panel.girono.ir",
-          "alpn": [
-            "http/1.1"
-          ],
-          "fingerprint": "chrome"
-        },
-        "wsSettings": {
-          "path": "/vCBzMD47IlF2JG40Latg6",
-          "host": "panel.girono.ir",
-          "headers": {
-            "Host": "panel.girono.ir"
-          }
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
-      "tag": "proxy-4",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "zula.ir",
-            "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "panel.girono.ir",
-          "alpn": [
-            "h2"
-          ],
-          "fingerprint": "chrome"
-        },
-        "xhttpSettings": {
-          "path": "/vCBzMD47IlFXrLHp23CcuP",
-          "host": "panel.girono.ir"
-        }
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    },
-    {
       "tag": "proxy-3",
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
             "address": "zula.ir",
-            "port": 443,
+            "port": 8080,
             "users": [
               {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
+                "id": "a891b235-b73d-4eba-a2c1-f16def02ca98",
                 "email": "t@t.tt",
                 "security": "auto",
                 "encryption": "none"
@@ -771,19 +63,13 @@
         ]
       },
       "streamSettings": {
-        "network": "httpupgrade",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "panel.girono.ir",
-          "alpn": [
-            "h2"
-          ],
-          "fingerprint": "chrome"
-        },
-        "httpupgradeSettings": {
-          "path": "/vCBzMD47IlFj8VlW0U9N8E",
-          "host": "panel.girono.ir"
+        "network": "ws",
+        "wsSettings": {
+          "path": "/?ed=2560",
+          "host": "contact.Girono.iR.",
+          "headers": {
+            "Host": "contact.Girono.iR."
+          }
         }
       },
       "mux": {
@@ -797,10 +83,10 @@
       "settings": {
         "servers": [
           {
-            "address": "zula.ir",
+            "address": "188.114.97.3",
             "method": "chacha20",
             "ota": false,
-            "password": "4a04823e-cc01-41bf-ba30-879679844bd1",
+            "password": "ygi5ULE1bT",
             "port": 443,
             "level": 1
           }
@@ -811,17 +97,17 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "panel.girono.ir",
+          "serverName": "StIlL-ChErRy-6E38.SoRoUsH7334-CeB.WoRkErS.DeV",
           "alpn": [
             "h2"
           ],
           "fingerprint": "chrome"
         },
         "wsSettings": {
-          "path": "/tJavhhj2JG40Latg6",
-          "host": "panel.girono.ir",
+          "path": "/?ed=2560",
+          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
           "headers": {
-            "Host": "panel.girono.ir"
+            "Host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
           }
         }
       },
@@ -832,20 +118,16 @@
     },
     {
       "tag": "proxy-1",
-      "protocol": "vless",
+      "protocol": "trojan",
       "settings": {
-        "vnext": [
+        "servers": [
           {
-            "address": "zula.ir",
+            "address": "188.114.97.3",
+            "method": "chacha20",
+            "ota": false,
+            "password": "ygi5ULE1bT",
             "port": 443,
-            "users": [
-              {
-                "id": "4a04823e-cc01-41bf-ba30-879679844bd1",
-                "email": "t@t.tt",
-                "security": "auto",
-                "encryption": "none"
-              }
-            ]
+            "level": 1
           }
         ]
       },
@@ -854,17 +136,17 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "panel.girono.ir",
+          "serverName": "StIlL-ChErRy-6E38.SoRoUsH7334-CeB.WoRkErS.DeV",
           "alpn": [
-            "h2"
+            "http/1.1"
           ],
-          "fingerprint": "chrome"
+          "fingerprint": "randomized"
         },
         "wsSettings": {
-          "path": "/vCBzMD47IlF2JG40Latg6",
-          "host": "panel.girono.ir",
+          "path": "/?ed=2560",
+          "host": "still-cherry-6e38.soroush7334-ceb.workers.dev",
           "headers": {
-            "Host": "panel.girono.ir"
+            "Host": "still-cherry-6e38.soroush7334-ceb.workers.dev"
           }
         }
       },
@@ -887,7 +169,7 @@
     }
   ],
   "routing": {
-    "domainStrategy": "IPOnDemand",
+    "domainStrategy": "AsIs",
     "rules": [
       {
         "type": "field",
@@ -900,14 +182,14 @@
         "type": "field",
         "outboundTag": "direct",
         "ip": [
-          "8.8.8.8"
+          "geoip:private"
         ]
       },
       {
         "type": "field",
         "outboundTag": "direct",
-        "ip": [
-          "geoip:private"
+        "domain": [
+          "geosite:private"
         ]
       },
       {
