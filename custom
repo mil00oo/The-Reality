@@ -8,17 +8,7 @@
     },
     "servers": [
       "1.1.1.1",
-      "9.9.9.10",
-      {
-        "address": "8.8.8.8",
-        "domains": [
-          "domain:ir",
-          "geosite:ir"
-        ],
-        "expectIPs": [
-          "geoip:ir"
-        ]
-      }
+      "8.8.8.8"
     ]
   },
   "inbounds": [
