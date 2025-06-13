@@ -1,4 +1,5 @@
 {
+  "remarks": "Lowest Ping",
   "log": {
     "loglevel": "warning"
   },
