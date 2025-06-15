@@ -1,4 +1,5 @@
-trojan://ygi5ULE1bT@188.114.97.3:443?security=tls&sni=StIlL-ChErRy-6E38.SoRoUsH7334-CeB.WoRkErS.DeV&alpn=http%2F1.1&fp=randomized&type=ws&host=still-cherry-6e38.soroush7334-ceb.workers.dev&path=%2F%3Fed%3D2560#%F0%9F%87%A9%F0%9F%87%AA%20Germany%201
-trojan://ygi5ULE1bT@188.114.97.3:443?security=tls&sni=StIlL-ChErRy-6E38.SoRoUsH7334-CeB.WoRkErS.DeV&alpn=h2&fp=chrome&type=ws&host=still-cherry-6e38.soroush7334-ceb.workers.dev&path=%2F%3Fed%3D2560#%F0%9F%87%A9%F0%9F%87%AA%20Germany%202
-vless://a891b235-b73d-4eba-a2c1-f16def02ca98@zula.ir:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#%F0%9F%87%A9%F0%9F%87%AA%20Germany%203
-vless://a891b235-b73d-4eba-a2c1-f16def02ca98@www.speedtest.net:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#%F0%9F%87%A9%F0%9F%87%AA%20Germany%204
+trojan://ygi5ULE1bT@172.66.41.97:443?path=%2F%3Fed%3D2560&security=tls&alpn=http%2F1.1&host=still-cherry-6e38.soroush7334-ceb.workers.dev&fp=randomized&type=ws&sni=flOwers.sOrOuSH7334-CEb.WorKeRS.DEV#%F0%9F%87%A9%F0%9F%87%AA%20Germany%201
+trojan://ygi5ULE1bT@188.114.97.3:443?path=%2F%3Fed%3D2560&security=tls&alpn=h2&host=still-cherry-6e38.soroush7334-ceb.workers.dev&fp=chrome&type=ws&sni=StIlL-ChErRy-6E38.SoRoUsH7334-CeB.WoRkErS.DeV#%F0%9F%87%A9%F0%9F%87%AA%20Germany%202
+trojan://ygi5ULE1bT@188.114.97.3:443?path=%2F%3Fed%3D2560&security=tls&alpn=http%2F1.1&host=still-cherry-6e38.soroush7334-ceb.workers.dev&fp=randomized&type=ws&sni=StIlL-ChErRy-6E38.SoRoUsH7334-CeB.WoRkErS.DeV#%F0%9F%87%A9%F0%9F%87%AA%20Germany%203
+vless://a891b235-b73d-4eba-a2c1-f16def02ca98@www.speedtest.net:8080?path=%2F%3Fed%3D2560&security=&encryption=none&host=contact.Girono.iR.&type=ws#%F0%9F%87%A9%F0%9F%87%AA%20Germany%204
+vless://a891b235-b73d-4eba-a2c1-f16def02ca98@zula.ir:8080?path=%2F%3Fed%3D2560&security=none&encryption=none&host=contact.Girono.iR.&type=ws#%F0%9F%87%A9%F0%9F%87%AA%20Germany%205
