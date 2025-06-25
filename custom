@@ -1,5 +1,6 @@
 [
   {
+    "remarks": "Lowest Ping",
     "log": {
       "loglevel": "warning"
     },
@@ -335,7 +336,6 @@
     "log": {
       "loglevel": "warning"
     },
-    "remarks": "🇩🇪 Germany Fragment",
     "outbounds": [
       {
         "mux": {
@@ -420,6 +420,7 @@
         "tag": "fragment"
       }
     ],
+    "remarks": "🇩🇪 Germany Fragment",
     "routing": {
       "domainStrategy": "AsIs",
       "rules": [
