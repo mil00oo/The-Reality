@@ -1,547 +1,527 @@
 {
-  "log": {
-    "level": "warn",
-    "timestamp": true
-  },
   "dns": {
+    "hosts": {
+      "domain:googleapis.cn": "googleapis.com",
+      "dns.alidns.com": [
+        "223.5.5.5",
+        "223.6.6.6",
+        "2400:3200::1",
+        "2400:3200:baba::1"
+      ],
+      "one.one.one.one": [
+        "1.1.1.1",
+        "1.0.0.1",
+        "2606:4700:4700::1111",
+        "2606:4700:4700::1001"
+      ],
+      "dns.cloudflare.com": [
+        "104.16.132.229",
+        "104.16.133.229",
+        "2606:4700::6810:84e5",
+        "2606:4700::6810:85e5"
+      ],
+      "cloudflare-dns.com": [
+        "104.16.248.249",
+        "104.16.249.249",
+        "2606:4700::6810:f8f9",
+        "2606:4700::6810:f9f9"
+      ],
+      "dot.pub": [
+        "1.12.12.12",
+        "120.53.53.53"
+      ],
+      "dns.google": [
+        "8.8.8.8",
+        "8.8.4.4",
+        "2001:4860:4860::8888",
+        "2001:4860:4860::8844"
+      ],
+      "dns.quad9.net": [
+        "9.9.9.9",
+        "149.112.112.112",
+        "2620:fe::fe",
+        "2620:fe::9"
+      ],
+      "common.dot.dns.yandex.net": [
+        "77.88.8.8",
+        "77.88.8.1",
+        "2a02:6b8::feed:0ff",
+        "2a02:6b8:0:1::feed:0ff"
+      ]
+    },
     "servers": [
-      {
-        "type": "https",
-        "server": "8.8.8.8",
-        "detour": "✅ Selector",
-        "tag": "dns-remote"
-      },
-      {
-        "type": "udp",
-        "server": "8.8.8.8",
-        "server_port": 53,
-        "tag": "dns-direct"
-      }
+      "1.1.1.1"
     ],
-    "rules": [
-      {
-        "domain": [
-          "raw.githubusercontent.com"
-        ],
-        "server": "dns-direct"
-      },
-      {
-        "clash_mode": "Direct",
-        "server": "dns-direct"
-      },
-      {
-        "clash_mode": "Global",
-        "server": "dns-remote"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-ir"
-          },
-          {
-            "rule_set": "geoip-ir"
-          }
-        ],
-        "action": "route",
-        "server": "dns-direct"
-      },
-      {
-        "rule_set": [
-          "geosite-malware",
-          "geosite-phishing",
-          "geosite-cryptominers",
-          "geosite-category-ads-all"
-        ],
-        "action": "reject"
-      }
-    ],
-    "strategy": "ipv4_only",
-    "independent_cache": true
+    "tag": "dns-module"
   },
   "inbounds": [
     {
-      "type": "tun",
-      "tag": "tun-in",
-      "address": [
-        "172.18.0.1/30"
-      ],
-      "mtu": 9000,
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "mixed"
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "0.0.0.0",
-      "listen_port": 2080
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true,
+        "routeOnly": false
+      },
+      "tag": "socks"
     }
   ],
+  "log": {
+    "loglevel": "warning"
+  },
+  "observatory": {
+    "enableConcurrency": true,
+    "probeInterval": "3m",
+    "probeUrl": "https://www.gstatic.com/generate_204",
+    "subjectSelector": [
+      "proxy-"
+    ]
+  },
   "outbounds": [
     {
-      "type": "selector",
-      "tag": "✅ Selector",
-      "outbounds": [
-        "💦 Best Ping 💥",
-        "💦 2 - VLESS - Domain : 8080",
-        "💦 3 - VLESS - IPv4 : 8080",
-        "💦 4 - VLESS - IPv4 : 8080",
-        "💦 5 - VLESS C - IPv4 : 8080",
-        "💦 6 - VLESS C - IPv4 : 8080",
-        "💦 7 - VLESS C - IPv4 : 8080",
-        "💦 8 - VLESS C - IPv4 : 8080",
-        "💦 9 - VLESS C - IPv4 : 8080",
-        "💦 10 - VLESS C - IPv4 : 8080",
-        "💦 11 - VLESS C - IPv4 : 8080",
-        "💦 12 - VLESS C - IPv4 : 8080",
-        "💦 13 - VLESS C - IPv4 : 8080",
-        "💦 14 - VLESS C - IPv4 : 8080",
-        "💦 15 - VLESS C - IPv4 : 8080"
-      ],
-      "interrupt_exist_connections": false
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.speedtest.net",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-1"
     },
     {
-      "type": "direct",
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.18.26.90",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-2"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "5.10.214.68",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-3"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.26.6.89",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-4"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "188.114.97.3",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-5"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "5.10.215.208",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-6"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "172.67.73.216",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-7"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "198.62.62.4",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-8"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "192.200.160.17",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-9"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "199.34.229.94",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-10"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "45.67.215.60",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-11"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "69.84.182.2",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-12"
+    },
+    {
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      },
       "tag": "direct"
     },
     {
-      "type": "urltest",
-      "tag": "💦 Best Ping 💥",
-      "outbounds": [
-        "💦 2 - VLESS - Domain : 8080",
-        "💦 3 - VLESS - IPv4 : 8080",
-        "💦 4 - VLESS - IPv4 : 8080",
-        "💦 5 - VLESS C - IPv4 : 8080",
-        "💦 6 - VLESS C - IPv4 : 8080",
-        "💦 7 - VLESS C - IPv4 : 8080",
-        "💦 8 - VLESS C - IPv4 : 8080",
-        "💦 9 - VLESS C - IPv4 : 8080",
-        "💦 10 - VLESS C - IPv4 : 8080",
-        "💦 11 - VLESS C - IPv4 : 8080",
-        "💦 12 - VLESS C - IPv4 : 8080",
-        "💦 13 - VLESS C - IPv4 : 8080",
-        "💦 14 - VLESS C - IPv4 : 8080",
-        "💦 15 - VLESS C - IPv4 : 8080"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interrupt_exist_connections": false,
-      "interval": "30s"
-    },
-    {
-      "tag": "💦 2 - VLESS - Domain : 8080",
-      "type": "vless",
-      "server": "www.speedtest.net",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 3 - VLESS - IPv4 : 8080",
-      "type": "vless",
-      "server": "188.114.97.3",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 4 - VLESS - IPv4 : 8080",
-      "type": "vless",
-      "server": "188.114.96.3",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 5 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "199.34.229.94",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 6 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "45.67.215.60",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 7 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "69.84.182.2",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 8 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "5.10.215.208",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 9 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "198.62.62.4",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 10 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "192.200.160.17",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 11 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "104.18.26.90",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 12 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "91.206.71.162",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 13 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "104.26.6.89",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 14 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "5.10.214.68",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
-    },
-    {
-      "tag": "💦 15 - VLESS C - IPv4 : 8080",
-      "type": "vless",
-      "server": "172.67.73.216",
-      "server_port": 8080,
-      "uuid": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-      "network": "tcp",
-      "tcp_fast_open": true,
-      "packet_encoding": "",
-      "transport": {
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560,
-        "headers": {
-          "Host": "contact.Girono.iR."
-        },
-        "path": "/",
-        "type": "ws"
-      }
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      },
+      "tag": "block"
     }
   ],
-  "route": {
+  "remarks": "import subIntelligent Selection",
+  "routing": {
+    "balancers": [
+      {
+        "selector": [
+          "proxy-"
+        ],
+        "strategy": {
+          "type": "leastPing"
+        },
+        "tag": "proxy-round"
+      }
+    ],
+    "domainStrategy": "AsIs",
     "rules": [
       {
-        "ip_cidr": "172.18.0.2",
-        "action": "hijack-dns"
-      },
-      {
-        "clash_mode": "Direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "Global",
-        "outbound": "✅ Selector"
-      },
-      {
-        "action": "sniff"
-      },
-      {
-        "protocol": "dns",
-        "action": "hijack-dns"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "network": "udp",
-        "action": "reject"
-      },
-      {
-        "rule_set": [
-          "geosite-malware",
-          "geosite-phishing",
-          "geosite-cryptominers",
-          "geosite-category-ads-all"
+        "inboundTag": [
+          "domestic-dns"
         ],
-        "action": "reject"
+        "outboundTag": "direct",
+        "type": "field"
       },
       {
-        "rule_set": [
-          "geoip-malware",
-          "geoip-phishing"
+        "balancerTag": "proxy-round",
+        "inboundTag": [
+          "dns-module"
         ],
-        "action": "reject"
+        "type": "field"
       },
       {
-        "rule_set": [
-          "geosite-ir"
-        ],
-        "action": "route",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "geoip-ir"
-        ],
-        "action": "route",
-        "outbound": "direct"
+        "balancerTag": "proxy-round",
+        "network": "tcp,udp",
+        "type": "field"
       }
-    ],
-    "rule_set": [
-      {
-        "type": "remote",
-        "tag": "geosite-malware",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-malware.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-malware",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-malware.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-phishing",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-phishing.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-phishing",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-phishing.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-cryptominers",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cryptominers.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-category-ads-all",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-ir",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-ir",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
-        "download_detour": "direct"
-      }
-    ],
-    "auto_detect_interface": true,
-    "default_domain_resolver": {
-      "server": "dns-direct",
-      "strategy": "ipv4_only",
-      "rewrite_ttl": 60
-    },
-    "final": "✅ Selector"
-  },
-  "ntp": {
-    "enabled": true,
-    "server": "time.cloudflare.com",
-    "server_port": 123,
-    "domain_resolver": "dns-direct",
-    "interval": "30m",
-    "write_to_system": false
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "store_fakeip": true
-    },
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "default_mode": "Rule"
-    }
+    ]
   }
 }
