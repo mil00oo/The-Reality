@@ -1,5 +1,4 @@
 {
-  "remarks": "🇬🇧 London",
   "dns": {
     "hosts": {
       "domain:googleapis.cn": "googleapis.com",
@@ -48,6 +47,10 @@
         "77.88.8.1",
         "2a02:6b8::feed:0ff",
         "2a02:6b8:0:1::feed:0ff"
+      ],
+      "www.speedtest.net": [
+        "104.17.148.22",
+        "104.17.147.22"
       ]
     },
     "servers": [
@@ -111,6 +114,15 @@
       },
       "streamSettings": {
         "network": "ws",
+        "sockopt": {
+          "domainStrategy": "UseIP",
+          "happyEyeballs": {
+            "interleave": 2,
+            "maxConcurrentTry": 4,
+            "prioritizeIPv6": false,
+            "tryDelayMs": 250
+          }
+        },
         "wsSettings": {
           "headers": {
             "Host": "contact.Girono.iR."
@@ -119,102 +131,6 @@
         }
       },
       "tag": "proxy-1"
-    },
-    {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false
-      },
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "104.18.26.90",
-            "port": 8080,
-            "users": [
-              {
-                "encryption": "none",
-                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "headers": {
-            "Host": "contact.Girono.iR."
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy-2"
-    },
-    {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false
-      },
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "5.10.214.68",
-            "port": 8080,
-            "users": [
-              {
-                "encryption": "none",
-                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "headers": {
-            "Host": "contact.Girono.iR."
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy-3"
-    },
-    {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false
-      },
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "104.26.6.89",
-            "port": 8080,
-            "users": [
-              {
-                "encryption": "none",
-                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "headers": {
-            "Host": "contact.Girono.iR."
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy-4"
     },
     {
       "mux": {
@@ -246,7 +162,39 @@
           "path": "/?ed=2560"
         }
       },
-      "tag": "proxy-5"
+      "tag": "proxy-2"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "91.206.71.162",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-3"
     },
     {
       "mux": {
@@ -278,7 +226,7 @@
           "path": "/?ed=2560"
         }
       },
-      "tag": "proxy-6"
+      "tag": "proxy-4"
     },
     {
       "mux": {
@@ -310,7 +258,7 @@
           "path": "/?ed=2560"
         }
       },
-      "tag": "proxy-7"
+      "tag": "proxy-5"
     },
     {
       "mux": {
@@ -321,7 +269,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "198.62.62.4",
+            "address": "5.10.214.68",
             "port": 8080,
             "users": [
               {
@@ -342,39 +290,7 @@
           "path": "/?ed=2560"
         }
       },
-      "tag": "proxy-8"
-    },
-    {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false
-      },
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "192.200.160.17",
-            "port": 8080,
-            "users": [
-              {
-                "encryption": "none",
-                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "headers": {
-            "Host": "contact.Girono.iR."
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy-9"
+      "tag": "proxy-6"
     },
     {
       "mux": {
@@ -406,71 +322,103 @@
           "path": "/?ed=2560"
         }
       },
+      "tag": "proxy-7"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.18.26.90",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-8"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.26.6.89",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
+      "tag": "proxy-9"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "198.62.62.4",
+            "port": 8080,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "contact.Girono.iR."
+          },
+          "path": "/?ed=2560"
+        }
+      },
       "tag": "proxy-10"
-    },
-    {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false
-      },
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "45.67.215.60",
-            "port": 8080,
-            "users": [
-              {
-                "encryption": "none",
-                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "headers": {
-            "Host": "contact.Girono.iR."
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy-11"
-    },
-    {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false
-      },
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "69.84.182.2",
-            "port": 8080,
-            "users": [
-              {
-                "encryption": "none",
-                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "headers": {
-            "Host": "contact.Girono.iR."
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy-12"
     },
     {
       "protocol": "freedom",
@@ -489,6 +437,7 @@
       "tag": "block"
     }
   ],
+  "remarks": "🇬🇧 London",
   "routing": {
     "balancers": [
       {
