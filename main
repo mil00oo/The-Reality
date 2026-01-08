@@ -8,7 +8,7 @@ vless://0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c@199.34.229.94:8080?encryption=none&
 vless://0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c@104.18.26.90:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#%F0%9F%87%AC%F0%9F%87%A7%20London%2008
 vless://0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c@104.26.6.89:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#%F0%9F%87%AC%F0%9F%87%A7%20London%2009
 vless://0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c@198.62.62.4:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#%F0%9F%87%AC%F0%9F%87%A7%20London%2010
-vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@www.speedtest.net:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#01NewYork
+vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@5.10.214.5:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#01NewYork
 vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@188.114.97.3:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#02NewYork
 vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@91.206.71.162:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#03NewYork
 vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@5.10.215.208:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#04NewYork
@@ -18,3 +18,4 @@ vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@199.34.229.94:8080?encryption=none&
 vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@104.18.26.90:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#08NewYork
 vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@104.26.6.89:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#09NewYork
 vless://8fa08d6f-005a-429f-8238-f7c82ffa86db@198.62.62.4:8080?encryption=none&security=none&type=ws&host=contact.Girono.iR.&path=%2F%3Fed%3D2560#10NewYork
+vless://2c4fb0d6-d406-4afa-8fe3-3dc1b159d6be@ipv6.girono.ir:30209?mode=auto&path=%2F&security=reality&encryption=none&extra=%7B%22scMaxEachPostBytes%22%3A%20%221000000%22%2C%20%22scMaxConcurrentPosts%22%3A%20100%2C%20%22scMinPostsIntervalMs%22%3A%2030%2C%20%22xPaddingBytes%22%3A%20%220%22%2C%20%22noGRPCHeader%22%3A%20false%7D&pbk=YfdryURJn_WMaosT8kyttnmCARFWw3NrUsAjMQLS8zo&fp=chrome&spx=%2F&type=xhttp&sni=tgju.org&sid=89f8e1c7#ipv6.usa
