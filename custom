@@ -48,10 +48,41 @@
         "2a02:6b8::feed:0ff",
         "2a02:6b8:0:1::feed:0ff"
       ],
-      "chatgpt.com": "104.18.32.47"
+      "k1.site.asan-ps.ir": [
+        "151.101.130.219",
+        "151.101.2.219",
+        "151.101.194.219",
+        "151.101.66.219"
+      ],
+      "python.org": [
+        "151.101.64.223",
+        "151.101.128.223",
+        "151.101.192.223",
+        "151.101.0.223"
+      ],
+      "speedtest.net": [
+        "151.101.130.219",
+        "151.101.66.219",
+        "151.101.194.219",
+        "151.101.2.219"
+      ],
+      "www.fastly.com": "146.75.53.57",
+      "fsl.narton.ir": [
+        "151.101.97.194",
+        "151.101.53.194",
+        "151.101.65.194",
+        "151.101.129.194",
+        "151.101.45.194",
+        "151.101.117.194",
+        "151.101.85.194",
+        "151.101.93.194",
+        "151.101.125.194",
+        "151.101.205.194",
+        "151.101.101.194"
+      ]
     },
     "servers": [
-      "1.1.1.1"
+      "8.8.8.8"
     ],
     "tag": "dns-module"
   },
@@ -77,7 +108,15 @@
     }
   ],
   "log": {
-    "loglevel": "warning"
+    "loglevel": "none"
+  },
+  "observatory": {
+    "enableConcurrency": true,
+    "probeInterval": "3m",
+    "probeUrl": "https://www.gstatic.com/generate_204",
+    "subjectSelector": [
+      "proxy-"
+    ]
   },
   "outbounds": [
     {
@@ -89,13 +128,12 @@
       "settings": {
         "vnext": [
           {
-            "address": "chatgpt.com",
-            "port": 8443,
+            "address": "151.101.64.145",
+            "port": 80,
             "users": [
               {
                 "encryption": "none",
-                "flow": "",
-                "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
                 "level": 8
               }
             ]
@@ -104,9 +142,100 @@
       },
       "streamSettings": {
         "network": "xhttp",
-        "security": "tls",
+        "xhttpSettings": {
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
+          "mode": "auto",
+          "path": "/"
+        }
+      },
+      "tag": "proxy-1"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "151.101.66.216",
+            "port": 80,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "xhttpSettings": {
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
+          "mode": "auto",
+          "path": "/"
+        }
+      },
+      "tag": "proxy-2"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "151.101.65.214",
+            "port": 80,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "xhttpSettings": {
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
+          "mode": "auto",
+          "path": "/"
+        }
+      },
+      "tag": "proxy-3"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "k1.site.asan-ps.ir",
+            "port": 80,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
         "sockopt": {
-          "dialerProxy": "fragment",
           "domainStrategy": "UseIP",
           "happyEyeballs": {
             "interleave": 2,
@@ -115,23 +244,204 @@
             "tryDelayMs": 250
           }
         },
-        "tlsSettings": {
-          "allowInsecure": false,
-          "alpn": [
-            "h2",
-            "http/1.1"
-          ],
-          "fingerprint": "chrome",
-          "serverName": "8y8t8588c58ct.ejj33jhe3u2i2j2jj22h2.de5.net",
-          "show": false
-        },
         "xhttpSettings": {
-          "host": "8y8t8588c58ct.ejj33jhe3u2i2j2jj22h2.de5.net",
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
           "mode": "auto",
           "path": "/"
         }
       },
-      "tag": "proxy"
+      "tag": "proxy-4"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "python.org",
+            "port": 80,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "sockopt": {
+          "domainStrategy": "UseIP",
+          "happyEyeballs": {
+            "interleave": 2,
+            "maxConcurrentTry": 4,
+            "prioritizeIPv6": false,
+            "tryDelayMs": 250
+          }
+        },
+        "xhttpSettings": {
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
+          "mode": "auto",
+          "path": "/"
+        }
+      },
+      "tag": "proxy-5"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "speedtest.net",
+            "port": 80,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "sockopt": {
+          "domainStrategy": "UseIP",
+          "happyEyeballs": {
+            "interleave": 2,
+            "maxConcurrentTry": 4,
+            "prioritizeIPv6": false,
+            "tryDelayMs": 250
+          }
+        },
+        "xhttpSettings": {
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
+          "mode": "auto",
+          "path": "/"
+        }
+      },
+      "tag": "proxy-6"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.fastly.com",
+            "port": 80,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "sockopt": {
+          "domainStrategy": "UseIP",
+          "happyEyeballs": {
+            "interleave": 2,
+            "maxConcurrentTry": 4,
+            "prioritizeIPv6": false,
+            "tryDelayMs": 250
+          }
+        },
+        "xhttpSettings": {
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
+          "mode": "auto",
+          "path": "/"
+        }
+      },
+      "tag": "proxy-7"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "199.232.232.231",
+            "port": 80,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "xhttpSettings": {
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
+          "mode": "auto",
+          "path": "/"
+        }
+      },
+      "tag": "proxy-8"
+    },
+    {
+      "mux": {
+        "concurrency": -1,
+        "enabled": false
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "fsl.narton.ir",
+            "port": 80,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "sockopt": {
+          "domainStrategy": "UseIP",
+          "happyEyeballs": {
+            "interleave": 2,
+            "maxConcurrentTry": 4,
+            "prioritizeIPv6": false,
+            "tryDelayMs": 250
+          }
+        },
+        "xhttpSettings": {
+          "host": "miti4tsvpn3.global.ssl.fastly.net",
+          "mode": "auto",
+          "path": "/"
+        }
+      },
+      "tag": "proxy-9"
     },
     {
       "protocol": "freedom",
@@ -148,35 +458,21 @@
         }
       },
       "tag": "block"
-    },
-    {
-      "protocol": "freedom",
-      "settings": {
-        "fragment": {
-          "interval": "10-20",
-          "length": "10-20",
-          "packets": "tlshello"
-        },
-        "noises": [
-          {
-            "delay": "10-16",
-            "packet": "10-20",
-            "type": "rand"
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "sockopt": {
-          "TcpNoDelay": true,
-          "mark": 255
-        }
-      },
-      "tag": "fragment"
     }
   ],
-  "remarks": "mobinnet",
+  "remarks": "uk",
   "routing": {
+    "balancers": [
+      {
+        "selector": [
+          "proxy-"
+        ],
+        "strategy": {
+          "type": "leastPing"
+        },
+        "tag": "proxy-round"
+      }
+    ],
     "domainStrategy": "AsIs",
     "rules": [
       {
@@ -187,10 +483,15 @@
         "type": "field"
       },
       {
+        "balancerTag": "proxy-round",
         "inboundTag": [
           "dns-module"
         ],
-        "outboundTag": "proxy",
+        "type": "field"
+      },
+      {
+        "balancerTag": "proxy-round",
+        "network": "tcp,udp",
         "type": "field"
       }
     ]
