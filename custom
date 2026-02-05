@@ -6653,7 +6653,7 @@
     "log": {
       "loglevel": "warning"
     },
-    "remarks": "8080.ws.nonTLS",
+    "remarks": "ws.8080.nonTLS",
     "dns": {
       "servers": [
         "1.1.1.1",
