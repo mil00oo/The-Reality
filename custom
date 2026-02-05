@@ -1,9 +1,6659 @@
 [
   {
+    "remarks": "ws.443.tls",
     "log": {
       "loglevel": "warning"
     },
-    "remarks": "Samantel",
+    "dns": {
+      "servers": [
+        "1.1.1.1",
+        "9.9.9.10"
+      ]
+    },
+    "inbounds": [
+      {
+        "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "tag": "proxy-1",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.152.23",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-2",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.36.242",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-3",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.146.152",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-4",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.134.117",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-5",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.24.232",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-6",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.24.36.188",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-7",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.37.105",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-8",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "160.153.136.205",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-9",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "162.159.152.4",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-10",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "cdn.halazzon.ir",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-11",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.34.227",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-12",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.34.32",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-13",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.43.187",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-14",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.150.151",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-15",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "198.62.62.127",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-16",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.153.29",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-17",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.152.56",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-18",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.155.214",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-19",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.35.233",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-20",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.12.149",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-21",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.151.14",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-22",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.151.40",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-23",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.152.100",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-24",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.19.222.79",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-25",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.7.42",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-26",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.10.214.68",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-27",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.73.206",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-28",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.151.232",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-29",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.32.47",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-30",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.36.216",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-31",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "188.114.97.3",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-32",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.35.200",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-33",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.35.156",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-34",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.10.214.5",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-35",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.38.167",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-36",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.39.85",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-37",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.41.241",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-38",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.148.171",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-39",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.153.224",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-40",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.66.0.243",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-41",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.149.89",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-42",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.149.223",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-43",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.70.206",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-44",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.154.211",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-45",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.33.45",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-46",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "162.159.140.245",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-47",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.74.206",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-48",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.32.42",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-49",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.18.12",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-50",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.26.90",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-51",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.38.33",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-52",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.155.209",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-53",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "chatgpt.com",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-54",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.65.90.22",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-55",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.65.90.23",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-56",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.65.90.21",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-57",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.65.90.20",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-58",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.71.206",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-59",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.72.206",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-60",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.6.42",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-61",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.41.104",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-62",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.36.24",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-63",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.67.73.216",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-64",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "dns.ownlink.pro",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-65",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "91.206.71.162",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-66",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "8.6.112.0",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-67",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "199.34.229.94",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-68",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "ipin1.oldinomi.com",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-69",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.94.41",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-70",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.95.41",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-71",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "216.239.38.120",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-72",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "3.160.196.89",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-73",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "zzula.ir",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-74",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "198.62.62.4",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-75",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "181.214.231.180",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-76",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "free2.aattaash.com",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-77",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "160.153.168.223",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "headers": {}
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "UseIP",
+          "userLevel": 0
+        }
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "type": "field",
+          "inboundTag": [
+            "api"
+          ],
+          "outboundTag": "api"
+        },
+        {
+          "type": "field",
+          "port": "0-65535",
+          "balancerTag": "proxy-round"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "proxy-round"
+        }
+      ],
+      "balancers": [
+        {
+          "selector": [
+            "proxy"
+          ],
+          "strategy": {
+            "type": "leastPing",
+            "settings": {
+              "expected": 1
+            }
+          },
+          "tag": "proxy-round"
+        }
+      ]
+    },
+    "observatory": {
+      "subjectSelector": [
+        "proxy"
+      ],
+      "probeUrl": "https://www.google.com/generate_204",
+      "probeInterval": "3m",
+      "enableConcurrency": true
+    }
+  },
+  {
+    "remarks": "xhttp.2083.tls",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        "1.1.1.1",
+        "9.9.9.10"
+      ]
+    },
+    "inbounds": [
+      {
+        "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "tag": "proxy-1",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.38.33",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-2",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "162.159.152.4",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-3",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.153.224",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-4",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.43.187",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-5",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.35.156",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-6",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.67.73.216",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-7",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "cdn.halazzon.ir",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-8",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.41.104",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-9",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.10.214.5",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-10",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "198.62.62.127",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-11",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "chatgpt.com",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-12",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.152.23",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-13",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.152.100",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-14",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.18.12",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-15",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.37.105",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-16",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.34.227",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-17",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.149.223",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-18",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.153.29",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-19",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "dns.ownlink.pro",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-20",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.34.32",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-21",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.154.211",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-22",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.32.42",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-23",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.149.89",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-24",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.151.14",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-25",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.36.24",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-26",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.33.45",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-27",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.36.216",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-28",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.151.232",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-29",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.150.151",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-30",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.19.222.79",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-31",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.7.42",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-32",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.26.90",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-33",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.134.117",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-34",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.24.36.188",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-35",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.12.149",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-36",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.146.152",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-37",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "188.114.97.3",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-38",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.151.40",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-39",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.148.171",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-40",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.10.214.68",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-41",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.70.206",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-42",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.155.214",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-43",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.73.206",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-44",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.72.206",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-45",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.39.85",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-46",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.74.206",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-47",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.41.241",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-48",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "162.159.140.245",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-49",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.66.0.243",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-50",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.65.90.21",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-51",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.65.90.20",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-52",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.152.56",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-53",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.65.90.22",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-54",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.17.71.206",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-55",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.65.90.23",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-56",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.36.242",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-57",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.24.232",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-58",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.32.47",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-59",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.35.200",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-60",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.155.209",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-61",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.38.167",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-62",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "zzula.ir",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-63",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.6.42",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-64",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "91.206.71.162",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-65",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "8.6.112.0",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-66",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "160.153.136.205",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-67",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "199.34.229.94",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-68",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "ipin1.oldinomi.com",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-69",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.94.41",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-70",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.95.41",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-71",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "104.18.35.233",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-72",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "216.239.38.120",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-73",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "3.160.196.89",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-74",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "198.62.62.4",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-75",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "181.214.231.180",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-76",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "free2.aattaash.com",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-77",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "160.153.168.223",
+              "port": 2083,
+              "users": [
+                {
+                  "id": "0cf7b989-28f2-4e7e-bb77-c0a258d9ea4c",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "tls",
+          "tlsSettings": {
+            "allowInsecure": false,
+            "serverName": "contact.Girono.iR",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "chrome"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "host": "contact.Girono.iR",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "UseIP",
+          "userLevel": 0
+        }
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "type": "field",
+          "inboundTag": [
+            "api"
+          ],
+          "outboundTag": "api"
+        },
+        {
+          "type": "field",
+          "port": "0-65535",
+          "balancerTag": "proxy-round"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "proxy-round"
+        }
+      ],
+      "balancers": [
+        {
+          "selector": [
+            "proxy"
+          ],
+          "strategy": {
+            "type": "leastPing",
+            "settings": {
+              "expected": 1
+            }
+          },
+          "tag": "proxy-round"
+        }
+      ]
+    },
+    "observatory": {
+      "subjectSelector": [
+        "proxy"
+      ],
+      "probeUrl": "https://www.google.com/generate_204",
+      "probeInterval": "3m",
+      "enableConcurrency": true
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "remarks": "8080.ws.nonTLS",
     "dns": {
       "servers": [
         "1.1.1.1",
