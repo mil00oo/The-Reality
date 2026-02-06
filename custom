@@ -9200,142 +9200,53 @@
     }
   },
   {
+    "remarks": "MCI.Fastly",
+    "log": {
+      "loglevel": "none"
+    },
     "dns": {
-      "hosts": {
-        "domain:googleapis.cn": "googleapis.com",
-        "dns.alidns.com": [
-          "223.5.5.5",
-          "223.6.6.6",
-          "2400:3200::1",
-          "2400:3200:baba::1"
-        ],
-        "one.one.one.one": [
-          "1.1.1.1",
-          "1.0.0.1",
-          "2606:4700:4700::1111",
-          "2606:4700:4700::1001"
-        ],
-        "dns.cloudflare.com": [
-          "104.16.132.229",
-          "104.16.133.229",
-          "2606:4700::6810:84e5",
-          "2606:4700::6810:85e5"
-        ],
-        "cloudflare-dns.com": [
-          "104.16.248.249",
-          "104.16.249.249",
-          "2606:4700::6810:f8f9",
-          "2606:4700::6810:f9f9"
-        ],
-        "dot.pub": [
-          "1.12.12.12",
-          "120.53.53.53"
-        ],
-        "dns.google": [
-          "8.8.8.8",
-          "8.8.4.4",
-          "2001:4860:4860::8888",
-          "2001:4860:4860::8844"
-        ],
-        "dns.quad9.net": [
-          "9.9.9.9",
-          "149.112.112.112",
-          "2620:fe::fe",
-          "2620:fe::9"
-        ],
-        "common.dot.dns.yandex.net": [
-          "77.88.8.8",
-          "77.88.8.1",
-          "2a02:6b8::feed:0ff",
-          "2a02:6b8:0:1::feed:0ff"
-        ],
-        "k1.site.asan-ps.ir": [
-          "151.101.130.219",
-          "151.101.2.219",
-          "151.101.194.219",
-          "151.101.66.219"
-        ],
-        "python.org": [
-          "151.101.64.223",
-          "151.101.128.223",
-          "151.101.192.223",
-          "151.101.0.223"
-        ],
-        "speedtest.net": [
-          "151.101.130.219",
-          "151.101.66.219",
-          "151.101.194.219",
-          "151.101.2.219"
-        ],
-        "www.fastly.com": "146.75.53.57",
-        "fsl.narton.ir": [
-          "151.101.97.194",
-          "151.101.53.194",
-          "151.101.65.194",
-          "151.101.129.194",
-          "151.101.45.194",
-          "151.101.117.194",
-          "151.101.85.194",
-          "151.101.93.194",
-          "151.101.125.194",
-          "151.101.205.194",
-          "151.101.101.194"
-        ]
-      },
       "servers": [
-        "8.8.8.8"
-      ],
-      "tag": "dns-module"
+        "1.1.1.1",
+        "8.8.8.8",
+        "9.9.9.9"
+      ]
     },
     "inbounds": [
       {
-        "listen": "127.0.0.1",
+        "tag": "socks",
         "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "userLevel": 8
-        },
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
+          "enabled": true,
           "destOverride": [
             "http",
             "tls"
           ],
-          "enabled": true,
           "routeOnly": false
         },
-        "tag": "socks"
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
+        }
       }
     ],
-    "log": {
-      "loglevel": "none"
-    },
-    "observatory": {
-      "enableConcurrency": true,
-      "probeInterval": "3m",
-      "probeUrl": "https://www.gstatic.com/generate_204",
-      "subjectSelector": [
-        "proxy-"
-      ]
-    },
     "outbounds": [
       {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
-        },
+        "tag": "proxy-1",
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "151.101.64.145",
+              "address": "151.101.65.194",
               "port": 80,
               "users": [
                 {
-                  "encryption": "none",
                   "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
                 }
               ]
             }
@@ -9344,120 +9255,18 @@
         "streamSettings": {
           "network": "xhttp",
           "xhttpSettings": {
+            "path": "/",
             "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
+            "mode": "auto"
           }
         },
-        "tag": "proxy-1"
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
       },
       {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
-        },
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "151.101.66.216",
-              "port": 80,
-              "users": [
-                {
-                  "encryption": "none",
-                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "xhttp",
-          "xhttpSettings": {
-            "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
-          }
-        },
-        "tag": "proxy-2"
-      },
-      {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
-        },
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "151.101.65.214",
-              "port": 80,
-              "users": [
-                {
-                  "encryption": "none",
-                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "xhttp",
-          "xhttpSettings": {
-            "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
-          }
-        },
-        "tag": "proxy-3"
-      },
-      {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
-        },
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "k1.site.asan-ps.ir",
-              "port": 80,
-              "users": [
-                {
-                  "encryption": "none",
-                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "xhttp",
-          "sockopt": {
-            "domainStrategy": "UseIP",
-            "happyEyeballs": {
-              "interleave": 2,
-              "maxConcurrentTry": 4,
-              "prioritizeIPv6": false,
-              "tryDelayMs": 250
-            }
-          },
-          "xhttpSettings": {
-            "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
-          }
-        },
-        "tag": "proxy-4"
-      },
-      {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
-        },
+        "tag": "proxy-2",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -9466,9 +9275,10 @@
               "port": 80,
               "users": [
                 {
-                  "encryption": "none",
                   "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
                 }
               ]
             }
@@ -9476,39 +9286,31 @@
         },
         "streamSettings": {
           "network": "xhttp",
-          "sockopt": {
-            "domainStrategy": "UseIP",
-            "happyEyeballs": {
-              "interleave": 2,
-              "maxConcurrentTry": 4,
-              "prioritizeIPv6": false,
-              "tryDelayMs": 250
-            }
-          },
           "xhttpSettings": {
+            "path": "/",
             "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
+            "mode": "auto"
           }
         },
-        "tag": "proxy-5"
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
       },
       {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
-        },
+        "tag": "proxy-3",
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "speedtest.net",
+              "address": "151.101.64.145",
               "port": 80,
               "users": [
                 {
-                  "encryption": "none",
                   "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
                 }
               ]
             }
@@ -9516,39 +9318,31 @@
         },
         "streamSettings": {
           "network": "xhttp",
-          "sockopt": {
-            "domainStrategy": "UseIP",
-            "happyEyeballs": {
-              "interleave": 2,
-              "maxConcurrentTry": 4,
-              "prioritizeIPv6": false,
-              "tryDelayMs": 250
-            }
-          },
           "xhttpSettings": {
+            "path": "/",
             "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
+            "mode": "auto"
           }
         },
-        "tag": "proxy-6"
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
       },
       {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
-        },
+        "tag": "proxy-4",
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "www.fastly.com",
+              "address": "151.101.205.194",
               "port": 80,
               "users": [
                 {
-                  "encryption": "none",
                   "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
                 }
               ]
             }
@@ -9556,28 +9350,51 @@
         },
         "streamSettings": {
           "network": "xhttp",
-          "sockopt": {
-            "domainStrategy": "UseIP",
-            "happyEyeballs": {
-              "interleave": 2,
-              "maxConcurrentTry": 4,
-              "prioritizeIPv6": false,
-              "tryDelayMs": 250
-            }
-          },
           "xhttpSettings": {
+            "path": "/",
             "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
+            "mode": "auto"
           }
         },
-        "tag": "proxy-7"
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
       },
       {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
+        "tag": "proxy-5",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.66.216",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
         },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-6",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -9586,9 +9403,10 @@
               "port": 80,
               "users": [
                 {
-                  "encryption": "none",
                   "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
                 }
               ]
             }
@@ -9597,29 +9415,30 @@
         "streamSettings": {
           "network": "xhttp",
           "xhttpSettings": {
+            "path": "/",
             "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
+            "mode": "auto"
           }
         },
-        "tag": "proxy-8"
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
       },
       {
-        "mux": {
-          "concurrency": -1,
-          "enabled": false
-        },
+        "tag": "proxy-7",
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "fsl.narton.ir",
+              "address": "151.101.129.194",
               "port": 80,
               "users": [
                 {
-                  "encryption": "none",
                   "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
-                  "level": 8
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
                 }
               ]
             }
@@ -9627,75 +9446,997 @@
         },
         "streamSettings": {
           "network": "xhttp",
-          "sockopt": {
-            "domainStrategy": "UseIP",
-            "happyEyeballs": {
-              "interleave": 2,
-              "maxConcurrentTry": 4,
-              "prioritizeIPv6": false,
-              "tryDelayMs": 250
-            }
-          },
           "xhttpSettings": {
+            "path": "/",
             "host": "miti4tsvpn3.global.ssl.fastly.net",
-            "mode": "auto",
-            "path": "/"
+            "mode": "auto"
           }
         },
-        "tag": "proxy-9"
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
       },
       {
-        "protocol": "freedom",
+        "tag": "proxy-8",
+        "protocol": "vless",
         "settings": {
-          "domainStrategy": "UseIP"
+          "vnext": [
+            {
+              "address": "151.101.128.223",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
         },
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "settings": {
-          "response": {
-            "type": "http"
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
           }
         },
-        "tag": "block"
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-9",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "146.75.53.57",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-10",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.101.194",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-11",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "167.82.92.159",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-12",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "www.fastly.com",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-13",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.65.214",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-14",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.66.219",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-15",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.64.223",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-16",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.45.194",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-17",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.65.57",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-18",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.192.223",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-19",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.125.194",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-20",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.1.57",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-21",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.0.223",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-22",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.85.194",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-23",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.194.219",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-24",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "speedtest.net",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-25",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.97.194",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-26",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.193.57",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-27",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.130.219",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-28",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.129.57",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-29",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.2.219",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-30",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.117.194",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-31",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.53.194",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-32",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "151.101.93.194",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-33",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "167.82.92.20",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-34",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "167.82.92.243",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-35",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "167.82.92.222",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "proxy-36",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "167.82.92.209",
+              "port": 80,
+              "users": [
+                {
+                  "id": "ccf59ed8-2f26-4a04-8226-9060088f6dff",
+                  "email": "t@t.tt",
+                  "security": "auto",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+            "path": "/",
+            "host": "miti4tsvpn3.global.ssl.fastly.net",
+            "mode": "auto"
+          }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom"
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
-    "remarks": "MCI",
     "routing": {
-      "balancers": [
-        {
-          "selector": [
-            "proxy-"
-          ],
-          "strategy": {
-            "type": "leastPing"
-          },
-          "tag": "proxy-round"
-        }
-      ],
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "type": "field",
           "inboundTag": [
-            "domestic-dns"
+            "api"
           ],
-          "outboundTag": "direct",
-          "type": "field"
+          "outboundTag": "api"
         },
         {
-          "balancerTag": "proxy-round",
-          "inboundTag": [
-            "dns-module"
-          ],
-          "type": "field"
+          "type": "field",
+          "port": "0-65535",
+          "balancerTag": "proxy-round"
         },
         {
-          "balancerTag": "proxy-round",
+          "type": "field",
           "network": "tcp,udp",
-          "type": "field"
+          "balancerTag": "proxy-round"
+        }
+      ],
+      "balancers": [
+        {
+          "selector": [
+            "proxy"
+          ],
+          "strategy": {
+            "type": "leastPing",
+            "settings": {
+              "expected": 1
+            }
+          },
+          "tag": "proxy-round"
         }
       ]
+    },
+    "observatory": {
+      "subjectSelector": [
+        "proxy"
+      ],
+      "probeUrl": "https://www.google.com/generate_204",
+      "probeInterval": "3m",
+      "enableConcurrency": true
     }
   }
 ]
