@@ -9202,7 +9202,7 @@
   {
     "remarks": "MCI.Fastly",
     "log": {
-      "loglevel": "none"
+      "loglevel": "warning"
     },
     "dns": {
       "servers": [
