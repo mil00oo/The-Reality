@@ -1,5 +1,3265 @@
 [
   {
+    "remarks": "Amsterdam.Worker",
+    "version": {
+      "min": "25.10.15"
+    },
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://8.8.8.8/dns-query",
+          "tag": "remote-dns"
+        },
+        {
+          "address": "8.8.8.8",
+          "domains": [
+            "full:ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "full:www.speedtest.net",
+            "full:cdn.halazzon.ir",
+            "full:chatgpt.com",
+            "full:dns.ownlink.pro",
+            "full:free2.aattaash.com",
+            "full:zzula.ir",
+            "full:ipin1.oldinomi.com"
+          ],
+          "skipFallback": true
+        }
+      ],
+      "queryStrategy": "UseIP",
+      "tag": "dns"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "enabled": true,
+          "routeOnly": true
+        },
+        "tag": "mixed-in"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10853,
+        "protocol": "dokodemo-door",
+        "settings": {
+          "address": "1.1.1.1",
+          "network": "tcp,udp",
+          "port": 53
+        },
+        "tag": "dns-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiUHZLZlFNRG9EIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVJ6fNu7JP8KUxY7K00Aw8vqDb7P7-T.SoroUsh7334-Ceb.WORkErS.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-1"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "www.speedtest.net",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiZXlaZUJGcE83IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvJ6fnU7Jp8KUXy7K00Aw8vQdB7P7-T.sORouSh7334-cEb.worKErS.deV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-2"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.67.134.219",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiN2xzOURYSncwayIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVj6FnU7jp8KUxY7K00aW8VqDb7P7-T.soRoush7334-CEb.WORKers.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-3"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.21.6.126",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiZW5wZlRuWnZQdlBvQiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "Ndvj6FNu7Jp8KUxY7K00aW8VqDb7p7-T.sOrOUSH7334-ceB.worKERs.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-4"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.36.242",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiYjFEMFgyU2xLSzEiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDVj6fNU7jp8kUXy7k00AW8VQDB7P7-T.SoROuSH7334-ceb.woRKERS.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-5"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.146.152",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiTVZacG1ROWR6NUsiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvj6fnu7JP8KuxY7K00AW8vqDB7p7-T.SorouSh7334-CeB.wOrKeRs.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-6"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.17.134.117",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiY2lTQnp6Q0t6ODIxUTFRUyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVj6fNu7JP8KUXY7k00aW8vQDB7P7-t.SoROuSh7334-cEB.WORKerS.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-7"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.24.232",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiR0pkQkxqUWZnIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvJ6FNU7Jp8kuxY7K00AW8VQDB7p7-t.sOrOuSh7334-Ceb.WORKers.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-8"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.24.36.188",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiMVFDTW1DRHNESyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvJ6FNU7jP8KUxY7k00aw8vQDB7P7-t.sorouSh7334-ceB.WoRkErS.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-9"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.37.105",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiWW1xcTdxY3lYZyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVJ6fNU7Jp8KuXY7K00AW8vQDb7P7-T.sORouSh7334-CEB.wOrKErS.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-10"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "160.153.136.205",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoidGdqYUZDcE1xV29NUmIiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVJ6fNu7JP8kUxy7K00aW8vQDB7p7-t.SOroush7334-cEB.wOrkeRS.deV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-11"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "162.159.152.4",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoicUF1eE5La25TYiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvj6FnU7jP8KUxy7K00Aw8vQdB7p7-T.soroUsh7334-cEB.WoRkERS.deV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-12"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "cdn.halazzon.ir",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiUXRxenVYQjN6ajh0bSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdvJ6fnu7jP8kuXy7K00AW8vQDb7P7-t.sOroUsH7334-cEb.WorkERs.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-13"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.34.227",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiNEVFYXBDejhtSFZTeSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "Ndvj6FNU7jp8KUxy7K00aW8VqdB7p7-T.sOROUsh7334-cEB.WOrkeRS.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-14"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.34.32",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiSmVlVEkwNVR5MCIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVj6fnu7Jp8KuXY7k00AW8vqdB7p7-t.SOrOuSH7334-CEB.WOrKERs.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-15"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.43.187",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiU1ZzSjIzemlVYSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvj6fNu7jP8kUxY7k00aW8vQdb7P7-t.SorOusH7334-CEB.wORkERs.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-16"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.150.151",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiYkkyOGZhTmZsd3E2VmxNOCIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvJ6fNu7jp8Kuxy7k00Aw8vqdB7p7-T.sorOUsh7334-cEb.woRkErs.deV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-17"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "198.62.62.127",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiVnloNWRFNW9wIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "Ndvj6fNu7JP8kUxY7k00aw8vqdb7P7-t.SoRouSh7334-ceb.workeRs.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-18"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.153.29",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiSlF0YXVxeGRRd0F5UCIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDVJ6fNu7jp8KuxY7K00AW8vqDb7p7-t.SORouSh7334-CEb.WoRKerS.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-19"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.152.56",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiVXZma0ZESTQ0ZlQiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvj6FNu7jp8kuxy7k00aW8VQDb7p7-t.sORouSH7334-ceb.workERs.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-20"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.155.214",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiVGlhMFRISE1JRUo0d0IiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvj6fnU7Jp8KUXY7k00aW8Vqdb7P7-t.SOroUSh7334-CeB.WORkERs.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-21"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.35.233",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiMktjMXdEYzBDa1RpeExaIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVj6FNu7jP8kUXY7K00aw8vqdb7p7-t.SORoUsh7334-cEB.woRKerS.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-22"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.12.149",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiTkpnTW9PSWNXZHJhIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdvJ6fNu7jP8kuxy7k00aW8VQdB7p7-t.SORousH7334-ceB.wORkERs.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-23"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.151.14",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiZ24xQUNZZnVJNjFWenJVZiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvj6fNu7JP8KuxY7k00Aw8VqDB7p7-t.SorOuSH7334-CEB.woRKERS.deV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-24"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.151.40",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiSG1uSjd4ZFF0QzNhSzIiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvJ6Fnu7jP8KUxy7k00AW8VqDB7p7-t.SORousH7334-Ceb.WoRKerS.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-25"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.152.100",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiWXFsekZzQUsiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvj6Fnu7jP8KUXY7K00aW8Vqdb7p7-T.SoROUSH7334-cEB.wOrKeRS.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-26"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.19.222.79",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiQXNtMjJZSkdIMSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVj6Fnu7jp8kUxy7k00aw8vQDb7P7-t.soRouSh7334-Ceb.WORKerS.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-27"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.7.42",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoienp3WWp0Rlp2IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDVj6FNU7JP8kuXY7k00aw8VQDb7p7-t.sOrOUSh7334-cEB.WOrKERs.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-28"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "5.10.214.68",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiM1ZNaDJta0M1bFVvNjVqaSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVj6fNu7Jp8kuxY7k00Aw8VQDB7P7-T.sORousH7334-ceB.workERs.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-29"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.17.73.206",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiQ1dlN3BRbEdEIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvj6fNU7JP8kuxY7K00aw8VQdb7P7-T.sOroUSH7334-cEB.WORKERs.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-30"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.151.232",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiaGU2cE5SOUFpd0k1eGsiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvj6Fnu7jp8kuXY7K00Aw8VQdb7P7-t.SoROUsh7334-CeB.worKeRS.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-31"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.32.47",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiOHJXWXJpNENiUm1RQVd6IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvJ6Fnu7JP8KuXY7K00Aw8vqdb7p7-T.sORoUSH7334-ceB.WoRkers.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-32"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.36.216",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoicEpwamVhZ1MiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvJ6FNu7jP8KuXy7k00AW8vqDB7p7-t.soRoUsH7334-CEB.WoRkeRs.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-33"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "188.114.97.3",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiMGM3eWxyelFMczFKIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVJ6Fnu7Jp8KUXY7K00AW8vqDb7p7-T.sOroush7334-CEb.WoRkeRs.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-34"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.35.200",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiaTBKbjhCVkdvZWpLdnpGdSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDVJ6FnU7jP8kUXy7k00aW8vQDB7P7-T.sOROUSH7334-Ceb.WORKeRS.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-35"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.35.156",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiZVcxTEZ3MmdQekRhTDgiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvj6fnu7jP8kUXY7k00Aw8VqdB7P7-T.SOrOUSH7334-cEB.WORKerS.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-36"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "5.10.214.5",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiM0UzdEVNbDlwV3gxZSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvJ6FNU7jp8kuxY7K00aw8VQDB7P7-t.SoROush7334-CEB.WorKERs.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-37"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.38.167",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoicm80WVIzTUZucUJwMjVVViIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "Ndvj6fnU7Jp8kuXy7K00aW8vqDb7p7-T.soroush7334-CeB.WoRkErS.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-38"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.39.85",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiUzdNdzZoSVIiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVJ6fnu7Jp8Kuxy7K00Aw8Vqdb7p7-t.soroUSh7334-ceB.WorkeRs.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-39"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.41.241",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiNXlIVnBvRkdNWFgiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvj6FnU7JP8KuxY7K00AW8VqDb7P7-t.soRouSH7334-CEb.worKers.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-40"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.148.171",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoieXE1cldmWTMiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvJ6FNU7JP8Kuxy7k00Aw8VQDB7p7-T.sORoUSH7334-CEb.wOrKERS.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-41"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.153.224",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiQ0pGNFNpdEwiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvJ6fNU7Jp8KuxY7K00AW8VQdb7P7-t.SoroUsH7334-ceb.WORKERs.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-42"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.66.0.243",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiQjVzVVhYYmVoU0N3dTFIQyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVj6FNu7JP8kUXy7K00aW8Vqdb7p7-t.SORousH7334-CeB.wOrkerS.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-43"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.149.89",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiVWN2SGRqd21jVHlWIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvJ6fnU7jP8KuxY7K00Aw8VQdb7P7-t.SorOUSH7334-ceB.WOrkeRs.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-44"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.149.223",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiTVJ3V043VjllMyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvj6FNU7jp8KUXY7K00aW8VQDB7p7-T.SOroUSH7334-cEB.wORkERS.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-45"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.17.70.206",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiRXFobnpNcXdHMFFERVlpYSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVJ6fnu7jp8KUXy7k00aW8vqDb7p7-T.SOROUSh7334-CeB.WoRKErs.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-46"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.154.211",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiZFJwTnNOZ1czS2RjN3QiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDVj6FNu7Jp8KUXY7k00aW8vQDB7p7-T.SoRouSH7334-cEb.workErs.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-47"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.33.45",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiTDJyOVc5UURtdWFHIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDVJ6FnU7JP8Kuxy7K00aW8VqDB7P7-T.SoRoUSH7334-ceB.WorKERS.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-48"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "162.159.140.245",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoibFlpYjc3YzJHQmwiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvj6FnU7jp8kUxy7K00AW8vQDB7P7-t.sORoUSH7334-cEB.WOrKERs.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-49"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.17.74.206",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoieFZPZXEyc0o0Z1l6IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVj6fNu7JP8KUXY7k00Aw8VQdB7P7-t.sORouSH7334-Ceb.wOrKeRS.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-50"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.32.42",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoielFiSmtWSGZiU1FtTSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvJ6FNu7jP8KUXy7K00aW8VqDb7p7-T.SOroUsh7334-ceB.woRkeRS.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-51"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.18.12",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiWWJ0NWlDa3hqUk0iLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvj6fnU7JP8kuXy7K00aW8VQdB7P7-t.sOroUsh7334-CEb.wORkErS.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-52"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.26.90",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiNm5pVGttb2VjNVh0Um50IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvJ6fnU7Jp8KUXy7k00aw8VqdB7P7-t.SorOuSH7334-CEB.WORkeRs.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-53"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.38.33",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiVFJZZjFYWU5NU0RNIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvJ6fnu7jp8KUxy7k00aW8VqDB7p7-t.SOrOUSh7334-Ceb.woRkers.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-54"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.155.209",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiZHRDRW5aVFdaIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvj6fnu7jp8kuxY7k00aW8vqdB7P7-T.Soroush7334-cEB.wOrKeRs.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-55"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "chatgpt.com",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiWkphSXlMZFdkNCIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "Ndvj6fNU7jp8KUXy7K00AW8vQdb7p7-T.SOrouSH7334-CeB.WorKERs.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-56"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.65.90.22",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiRFZQMEQ5Zkx3V0JoMzE0VSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVJ6Fnu7jP8KuXy7K00aW8vqdB7p7-t.SoROUsh7334-ceB.WorKerS.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-57"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.65.90.23",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiVEJOVHo3UmciLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVj6Fnu7Jp8kUXY7K00AW8vQdb7P7-t.SorouSH7334-CeB.wORKeRS.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-58"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.65.90.21",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiOGFFRjJwamYiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "Ndvj6FnU7JP8kUxy7K00Aw8VQdb7p7-t.sOrOUsH7334-CeB.worKeRS.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-59"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.65.90.20",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiVXBNZEdPRjlMbmwwVk5HIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDVJ6fNU7JP8KUXY7k00Aw8vQdb7p7-t.SorOusH7334-Ceb.wORKeRS.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-60"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.17.71.206",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoibkd4VUVTYVFXbVlkVGhiIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDVJ6Fnu7JP8kuXy7K00Aw8vqDB7P7-T.sORouSH7334-ceb.WoRKerS.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-61"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.17.72.206",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiRFpsU3hNTjFObzNjNjdJIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvj6Fnu7Jp8kUXy7k00aw8vqDB7P7-t.sORoUSH7334-CEB.woRkERS.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-62"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.6.42",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiaVdIelZPZzhjMlEiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVJ6FNu7Jp8kUxY7k00Aw8VQdb7p7-T.soroUSH7334-CEB.woRKErs.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-63"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.41.104",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiMFc1TlM0bVlYM2ZhNFFOVCIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVj6FNU7Jp8kuxY7K00Aw8vQdB7p7-t.SoroUSh7334-CEb.WoRKers.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-64"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.36.24",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoib0RqVWd5SHhlIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvj6fNu7jp8KuXy7k00AW8vQDB7p7-t.sorOusH7334-CeB.wORKERS.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-65"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.67.73.216",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiQ2d1Q3pjSFFqdGh5enZvIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDVj6FnU7Jp8kuXY7K00AW8vQDb7p7-T.sOrOUSH7334-CEB.WoRKErs.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-66"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "dns.ownlink.pro",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiMnZFWTBtcGdobEh0eUgiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvj6FNu7jP8KuXY7k00aw8vQdB7P7-T.SoroUsh7334-cEb.WORkERS.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-67"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "160.153.168.223",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoib0hPbzNPR0ZCQldKMkNGIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVJ6fNu7Jp8KuxY7K00AW8VQDb7p7-t.SOrOush7334-Ceb.workErs.DEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-68"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "free2.aattaash.com",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiQ1hDWWIxMmFOSkx1czUiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDVj6fNu7jP8KUxy7K00aW8vqdb7p7-t.SoROusH7334-CEB.wOrKERS.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-69"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "181.214.231.180",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiQ3JJOVFicmZFRmtLYTBnMyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NDvj6FNU7JP8KUxY7k00aW8vQDB7p7-t.soROuSH7334-Ceb.workerS.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-70"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "198.62.62.4",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiRzRLQ2FBR21oREw5MyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvJ6FNU7jP8KUXy7k00aw8vqDb7P7-t.soROuSh7334-cEb.WoRKErS.deV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-71"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "zzula.ir",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiUHlWNWR5ZGJlNEYiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVJ6fnu7jp8kuXY7K00AW8VQDb7P7-t.SorOusH7334-CEb.WOrkeRS.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-72"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "3.160.196.89",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiVUpjeWlQOVBLa1VtIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVJ6fNU7JP8kuXY7K00aW8VqDB7P7-t.sOrOuSH7334-cEb.workErs.dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-73"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "216.239.38.120",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiMXBCMWlldGVHRklDRiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndvj6fNU7jp8kUxY7K00aW8VQdb7p7-t.sORouSH7334-cEb.wORkers.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-74"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.95.41",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiMlhvNlBRUWF0IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVJ6FNU7Jp8kUXy7K00aW8vQDB7P7-t.SOROuSH7334-Ceb.worKeRs.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-75"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "104.18.94.41",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiU2M5dGlZb3pCVUFnQ0ZpIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDvj6Fnu7jP8KUXY7K00AW8Vqdb7P7-t.sOrOUSh7334-Ceb.woRkErS.dEv",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-76"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "ipin1.oldinomi.com",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoid3ljU245Ykl6YTQiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0=?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ndVJ6Fnu7jp8KuXy7k00aW8Vqdb7P7-T.soRouSh7334-cEb.wOrKERs.dEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-77"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "199.34.229.94",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiNjJlVlNPdWVDViIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nDVJ6fNu7jP8kuxY7k00aw8vQDB7p7-T.SORoush7334-Ceb.worKERS.DeV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-78"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "8.6.112.0",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiczJhclVySzhqdzVRTG9TNSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVJ6fNU7JP8KuxY7K00AW8vqDB7P7-t.sorOUsh7334-ceb.wOrKers.Dev",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-79"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "91.206.71.162",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiaGlMWDR1T3dDazJrVGR1IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdvJ6FnU7jP8KuXy7K00aW8VQdB7P7-t.sorOUSH7334-CEb.WorKErS.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-80"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "172.64.152.23",
+              "port": 443,
+              "password": "p6,3zh+M}9D,"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "host": "ndvj6fnu7jp8kuxy7k00aw8vqdb7p7-t.soroush7334-ceb.workers.dev",
+            "path": "/eyJqdW5rIjoiU01SM0I1dFc2UVhYRnNYIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+          },
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "NdVj6FNu7Jp8kuXY7k00aW8vQDb7P7-T.SOrOUsh7334-cEB.WOrkeRs.DEV",
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ],
+            "allowInsecure": false
+          },
+          "sockopt": {
+            "domainStrategy": "UseIP",
+            "happyEyeballs": {
+              "tryDelayMs": 250,
+              "prioritizeIPv6": false,
+              "interleave": 2,
+              "maxConcurrentTry": 4
+            }
+          }
+        },
+        "tag": "proxy-81"
+      },
+      {
+        "protocol": "dns",
+        "settings": {
+          "nonIPQuery": "reject"
+        },
+        "tag": "dns-out"
+      },
+      {
+        "protocol": "freedom",
+        "settings": {
+          "domainStrategy": "UseIP"
+        },
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {
+          "response": {
+            "type": "http"
+          }
+        },
+        "tag": "block"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "inboundTag": [
+            "mixed-in"
+          ],
+          "port": 53,
+          "outboundTag": "dns-out",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "dns-in"
+          ],
+          "outboundTag": "dns-out",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "remote-dns"
+          ],
+          "balancerTag": "all-proxies",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "dns"
+          ],
+          "outboundTag": "direct",
+          "type": "field"
+        },
+        {
+          "domain": [
+            "geosite:private"
+          ],
+          "outboundTag": "direct",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct",
+          "type": "field"
+        },
+        {
+          "network": "udp",
+          "outboundTag": "block",
+          "type": "field"
+        },
+        {
+          "network": "tcp",
+          "balancerTag": "all-proxies",
+          "type": "field"
+        }
+      ],
+      "balancers": [
+        {
+          "tag": "all-proxies",
+          "selector": [
+            "proxy"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          },
+          "fallbackTag": "proxy-2"
+        }
+      ]
+    },
+    "observatory": {
+      "subjectSelector": [
+        "proxy"
+      ],
+      "probeUrl": "https://www.gstatic.com/generate_204",
+      "probeInterval": "3m",
+      "enableConcurrency": true
+    },
+    "policy": {
+      "levels": {
+        "0": {
+          "connIdle": 300,
+          "handshake": 4,
+          "uplinkOnly": 1,
+          "downlinkOnly": 1
+        }
+      },
+      "system": {
+        "statsOutboundUplink": true,
+        "statsOutboundDownlink": true
+      }
+    },
+    "stats": {}
+  },
+  {
     "remarks": "ws.443.tls",
     "log": {
       "loglevel": "warning"
