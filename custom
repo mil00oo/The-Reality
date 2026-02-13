@@ -12296,7 +12296,7 @@
     }
   },
   {
-    "remarks": "MCI.Fastly",
+    "remarks": "ws.80.Fastly",
     "log": {
       "loglevel": "warning"
     },
