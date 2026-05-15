@@ -5,7 +5,7 @@
 apt update && apt upgrade -y && sleep 10 && sudo timedatectl set-timezone UTC && reboot
 ```
 ```bash
-apt install -y curl htop nano wget unzip nano socat cron ufw git
+apt install -y curl htop nano wget unzip nano socat cron ufw git net-tools
 ```
 ```bash
 wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
@@ -15,7 +15,7 @@ sudo rm -f /etc/resolv.conf && echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' 
 ```
 ### -[ Change SSH port ]
 ```bash
-apt install net-tools && netstat -tulnp
+netstat -tulnp
 ```
 ```bash
 nano /etc/ssh/sshd_config
